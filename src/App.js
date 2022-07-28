@@ -238,14 +238,18 @@ function App() {
     <Start>
       <FirstPage>
         <div style={{width: '100%', display: 'flex', flexDirection: 'row-reverse'}}>
+          <a href="https://www.google.de/?hl=de">
           <img style={{width: '50px', marginRight: '5px', marginTop: '5px'}} src="/config/images/tw.png"></img>
+          </a>
+          <a href="https://www.google.de/?hl=de">
           <img style={{width: '50px', marginRight: '5px', marginTop: '5px'}} src="/config/images/os.png"></img>
+          </a>
         </div>
         <StyledLogo src="/config/images/logo.png"></StyledLogo>
       </FirstPage>
 
 
-      <ThirdPage>
+      <SecondPage>
         <HideImage className={state? "left-image-move":"left-image"}>
           <span className="left-image-span">
             <span className="image-span"></span>
@@ -373,9 +377,9 @@ function App() {
               </>
             )}
         </div>
-      </ThirdPage>
+      </SecondPage>
 
-      <Page>
+      <Slider>
       <div style={{marginTop: 'auto'}}>
       <div class="slider">
             <div class="slide-track">
@@ -424,9 +428,9 @@ function App() {
             </div>
       </div>
       </div>
-      </Page>
+      </Slider>
 
-      <SecondPage>
+      <ThirdPage>
         <div className="container">
             <div className="halfbox">
               <div className="content">
@@ -447,19 +451,23 @@ function App() {
                 <img src="/config/images/dappr.webp" style={{maxWidth: '100%', width: '70%', height: '80%', margin: 'auto'}}></img>
             </div>
         </div>
-      </SecondPage>
+      </ThirdPage>
 
 
       <footer>
         <div className="test" style={{width: '100%', height: '70px', backgroundColor: 'var(--secondary)'}}>
           <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', width: '100%'}}>
-            <img src="/config/images/tw.png" style={{width: '40px', marginTop: '12px', marginRight: '0.4%'}}></img>
-            <img src="/config/images/os.png" style={{width: '40px', marginTop: '12px'}}></img>
+            <a href="https://www.google.de/?hl=de">
+            <img src="/config/images/tw.png" style={{width: '40px', marginTop: '12px', marginRight: '10%'}}></img>
+            </a>
+            <a href="https://www.google.de/?hl=de">
+            <img src="/config/images/os.png" style={{width: '40px', marginTop: '12px', marginLeft: '10%'}}></img>
+            </a>
           </div>
         </div>
       </footer>
       </Start>
-  );
+  ); 
 }
 
 export const FirstPage = styled.div`
@@ -484,7 +492,7 @@ box-sizing: border-box;
 `;
 
 
-export const SecondPage = styled.div`
+export const ThirdPage = styled.div`
 display: flex; 
 flex-direction: column; 
 justify-self: center; 
@@ -515,7 +523,7 @@ box-sizing: border-box;
 }
 `;
 
-export const ThirdPage = styled.div`
+export const SecondPage = styled.div`
 display: flex; 
 flex-direction: column; 
 justify-self: center; 
@@ -536,7 +544,7 @@ box-sizing: border-box;
 }
 `;
 
-export const Page = styled.div`
+export const Slider = styled.div`
 display: flex; 
 flex-direction: column; 
 justify-self: center; 
@@ -558,7 +566,7 @@ box-sizing: border-box;
   display: none;
 }
 @media (min-width: 1850px) {
-  height: 55vh;
+  height: 45vh;
 }
 `;
 
