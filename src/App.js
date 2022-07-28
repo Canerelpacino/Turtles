@@ -4,6 +4,8 @@ import { connect } from "./redux/blockchain/blockchainActions";
 import { fetchData } from "./redux/data/dataActions";
 import * as s from "./styles/globalStyles";
 import styled from "styled-components";
+import './App.css';
+
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
@@ -64,12 +66,33 @@ export const ResponsiveWrapper = styled.div`
 `;
 
 export const StyledLogo = styled.img`
-  width: 300px;
-  @media (min-width: 767px) {
-    width: 850px;
+margin: auto;
+width: 50%;
+  @media (max-width: 400px) {
+    width: 90%;
+    margin-top: 0;
+    margin: auto;
   }
-  transition: width 0.5s;
-  transition: height 0.5s;
+`;
+
+export const StyledLogo2 = styled.img`
+width: 50%;
+margin: auto;
+margin-top: 10vh;
+  @media (max-width: 600px) {
+    width: 100%;
+    margin: auto;
+    margin-top: 5vh;
+  }
+`;
+
+export const MintText = styled.div`
+width: 38%;
+margin-top: 24px;
+text-align: center;
+  @media (max-width: 600px) {
+    width: 350px;
+  }
 `;
 
 export const StyledImg = styled.img`
@@ -93,10 +116,25 @@ export const StyledLink = styled.a`
 `;
 
 export const Start = styled.div`
-cursor: url(config/images/pointer.png), auto;
+cursor: url(config/images/ca.png), auto;
 `;
 
 function App() {
+
+  const [state, setstate] = useState(false);
+  const changeScroll = () => {
+    
+    const scrollValue = document.documentElement.scrollTop;
+    if(scrollValue>100){
+      setstate(true);
+    } else {
+      setstate(false);
+    }
+
+  }
+
+  window.addEventListener('scroll', changeScroll);
+
   const dispatch = useDispatch();
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
@@ -169,6 +207,7 @@ function App() {
     }
     setMintAmount(newMintAmount);
   };
+  
 
   const getData = () => {
     if (blockchain.account !== "" && blockchain.smartContract !== null) {
@@ -197,50 +236,45 @@ function App() {
 
   return (
     <Start>
-      <div style={{display: 'flex', flexDirection: 'column', height: '100vh', minWidth: '100%',
-       backgroundImage: 'linear-gradient(180deg,transparent 60%,#000), linear-gradient(0deg, transparent 60%, #000), url("/config/images/bg.gif")',
-       backgroundPosition: '50%', backgroundRepeat: 'no-repeat',
-       backgroundSize: 'cover', textAlign: 'center', boxSizing: 'border-box',
-       justifyContent: 'center', alignItems: 'center' }}>
-         
-         <div style={{width: '100%', display: 'flex', flexDirection: 'row-reverse', marginTop: '12px', marginRight: '15px'}}>
-          <img style={{width: '50px', height: '50px'}} src={"/config/images/tw.png"}/>
-          <img style={{width: '50px', height: '50px'}} src={"/config/images/os.png"}/>
-        </div> 
-        <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
-          <s.Container flex={1} jc={"center"} ai={"center"}>
-          </s.Container>
-          <s.SpacerLarge />
-          <s.Container
-            flex={2}
-            jc={"center"}
-            ai={"center"}
-            style={{
-              padding: 24,
-              borderRadius: 24,
-            }}
-          >
-            <StyledLogo alt={"logo"} src={"/config/images/logo.png"} />
-            <s.TextDescription
-              style={{
-                textAlign: "center",
-                color: "var(--primary-text)",
-              }}
-            >
-            </s.TextDescription>
-            <s.SpacerSmall />
-            {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
+      <FirstPage>
+        <div style={{width: '100%', display: 'flex', flexDirection: 'row-reverse'}}>
+          <img style={{width: '50px', marginRight: '5px', marginTop: '5px'}} src="/config/images/tw.png"></img>
+          <img style={{width: '50px', marginRight: '5px', marginTop: '5px'}} src="/config/images/os.png"></img>
+        </div>
+        <StyledLogo src="/config/images/logo.png"></StyledLogo>
+      </FirstPage>
+      <ThirdPage>
+        <div className={state? "left-image-move":"left-image"}>
+          <span className="left-image-span">
+            <span className="image-span"></span>
+            <img className="hero" src="/config/images/hero.webp"></img>
+          </span>
+        </div>
+        <div className={state? "right-image-move":"right-image"}>
+          <span className="left-image-span">
+            <span className="image-span"></span>
+            <img className="hero" src="/config/images/hero-right.webp"></img>
+          </span>
+        </div>
+        <div style={{display: 'flex', width: '50%', marginTop: '100px'}}>
+          <StyledLogo2 src="/config/images/logo.png"></StyledLogo2>
+        </div>
+        <MintText>
+          <s.TextTitle>
+                      A 2,500 collection of Moon Vamps. You’ll need to have $BLOOD in 
+                      your wallet to mint. Each Moon Vamp costs 60 $BLOOD to mint. 
+                      If you don’t have enough you will be able to 
+                      make up the difference with ETH.
+          </s.TextTitle>
+        </MintText>
+        <div>
+        {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
               <>
                 <s.TextTitle
-                  style={{ textAlign: "center", color: "var(--accent-text)" }}
+                  style={{ textAlign: "center", color: "var(--primary-text)" }}
                 >
-                  The sale has ended.
+                  SOLD OUT
                 </s.TextTitle>
-                <s.TextDescription
-                  style={{ textAlign: "center", color: "var(--accent-text)" }}
-                >
-                  You can still find {CONFIG.NFT_NAME} on
-                </s.TextDescription>
                 <s.SpacerSmall />
                 <StyledLink target={"_blank"} href={CONFIG.MARKETPLACE_LINK}>
                   {CONFIG.MARKETPLACE}
@@ -248,14 +282,6 @@ function App() {
               </>
             ) : (
               <>
-              <div style={{width: '700px', textAlign: 'center'}}>
-                      <s.TextTitle>
-                      A 2,500 collection of Moon Vamps. You’ll need to have $BLOOD in 
-                      your wallet to mint. Each Moon Vamp costs 60 $BLOOD to mint. 
-                      If you don’t have enough you will be able to 
-                      make up the difference with ETH.
-                      </s.TextTitle>
-                    </div>
                 <s.SpacerXSmall />
                 <s.SpacerSmall />
                 {blockchain.account === "" ||
@@ -277,7 +303,7 @@ function App() {
                         <s.TextDescription
                           style={{
                             textAlign: "center",
-                            color: "var(--accent-text)",
+                            color: "var(--primary-text)",
                           }}
                         >
                           {blockchain.errorMsg}
@@ -290,7 +316,7 @@ function App() {
                     <s.TextDescription
                       style={{
                         textAlign: "center",
-                        color: "var(--accent-text)",
+                        color: "var(--primary-text)",
                       }}
                     >
                       {feedback}
@@ -311,7 +337,7 @@ function App() {
                       <s.TextDescription
                         style={{
                           textAlign: "center",
-                          color: "var(--accent-text)",
+                          color: "var(--primary-text)",
                         }}
                       >
                         {mintAmount}
@@ -344,35 +370,36 @@ function App() {
                 )}
               </>
             )}
-          </s.Container>
-          <s.SpacerLarge />
-          <s.Container flex={1} jc={"center"} ai={"center"}>
-          </s.Container>
-        </ResponsiveWrapper>
-      </div>
+        </div>
+      </ThirdPage>
+      <SecondPage></SecondPage>
       <SecondPage>
-        <div style={{width: '100%', height: '100%', display: 'flex'}}>
-            <div style={{width: '50%', height: '100%', display: 'flex', marginRight: 'auto'}}>
-              <div style={{margin: 'auto', width: '50%', height: '60%', marginRight: '10%', marginTop: '25%'}}>
-                <div style={{width: '100%', height: '30%'}}>
-                  <img style={{width: '100%', marginTop: '20px'}} src="/config/images/logo.png"></img>
+        <div className="container">
+            <div className="halfbox">
+              <div className="content">
+                <div className="imagebox">
+                  <img className="logoimage" src="/config/images/logo.png"></img>
                 </div>
-                <div style={{width: '100%', height: '70%'}}>
+                <div className="textbox">
                   <s.TextDescription style={{fontSize: '24px', textAlign: 'left'}}>A 2,500 collection of Moon Vamps. You’ll need to have $BLOOD in your wallet to mint.
                   Each Moon Vamp costs 60 $BLOOD to mint. If you don’t have enough you will be able to 
                   make up the difference with ETH.</s.TextDescription>
                 </div>
+                <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', width: '100%', height: '18%'}}>
+                 <StyledButton style={{margin: 'auto', marginLeft: '0px'}}>OPENSEA</StyledButton>
+                </div>
               </div>
             </div>
-            <div style={{width: '50%', height: '100%'}}>
-              <div style={{margin: 'auto', width: '50%', height: '60%', marginLeft: '10%', marginTop: '25%'}}>
-                <img src="/config/images/t.png" style={{width: '100%'}}></img>
+            <div className="halfbox2" style={{width: '50%', height: '100%'}}>
+              <div className="imagecontainer" style={{margin: 'auto', width: '50%', height: '60%', marginLeft: '13%', marginTop: '25%'}}>
+                <img src="/config/images/dappr.webp" style={{width: '100%'}}></img>
               </div>
             </div>
         </div>
       </SecondPage>
+
       <footer>
-        <div className="test" style={{width: '100%', height: '70px', backgroundColor: '#000'}}>
+        <div className="test" style={{width: '100%', height: '70px', backgroundColor: 'var(--secondary)'}}>
           <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', width: '100%'}}>
             <img src="/config/images/tw.png" style={{width: '40px', marginTop: '12px', marginRight: '0.4%'}}></img>
             <img src="/config/images/os.png" style={{width: '40px', marginTop: '12px'}}></img>
@@ -383,6 +410,28 @@ function App() {
   );
 }
 
+export const FirstPage = styled.div`
+display: flex; 
+flex-direction: column; 
+justify-self: center; 
+align-items: center; 
+height: 100vh; 
+minWidth: 100%;
+background-image: url("/config/images/isekai.jpg");
+background-position: 50%; 
+background-repeat: no-repeat;
+background-size: cover; 
+text-align: center; 
+box-sizing: border-box;
+@media (max-width: 900px) {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+}
+`;
+
+
 export const SecondPage = styled.div`
 display: flex; 
 flex-direction: column; 
@@ -390,7 +439,51 @@ justify-self: center;
 align-items: center; 
 height: 100vh; 
 minWidth: 100%;
-background-image: linear-gradient(180deg,transparent 60%,#000), linear-gradient(0deg, transparent 60%, #000), url("/config/images/waste.gif");
+background-image: url("/config/images/back.webp");
+background-position: 50%; 
+background-repeat: no-repeat;
+background-size: cover; 
+text-align: center; 
+box-sizing: border-box;
+@media (max-width: 900px) {
+  visibility: hidden;
+  clear: both;
+  float: left;
+  margin: 10px auto 5px 20px;
+  width: 28%;
+  display: none;
+}
+`;
+
+export const ThirdPage = styled.div`
+display: flex; 
+flex-direction: column; 
+justify-self: center; 
+align-items: center; 
+height: 90vh; 
+minWidth: 100%;
+background-image: url("/config/images/back.webp");
+background-position: 50%; 
+background-repeat: no-repeat;
+background-size: cover; 
+text-align: center; 
+box-sizing: border-box;
+@media (max-width: 900px) {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+}
+`;
+
+export const Page = styled.div`
+display: flex; 
+flex-direction: column; 
+justify-self: center; 
+align-items: center; 
+height: 33vh; 
+minWidth: 100%;
+background-image: url("/config/images/back.webp");
 background-position: 50%; 
 background-repeat: no-repeat;
 background-size: cover; 

@@ -52,7 +52,7 @@ export const Container = styled.div`
 `;
 
 export const TextTitle = styled.p`
-  color: var(--accent-text);
+  color: var(--primary-text);
   font-size: 22px;
   font-weight: 500;
   line-height: 1.6;
@@ -68,7 +68,7 @@ export const TextSubTitle = styled.p`
 
 export const TextDescription = styled.p`
   font-family: 'Freckle Face', cursive;
-  color: var(--accent-text);
+  color: var(--primary-text);
   font-size: 16px;
   line-height: 1.6;
 `;
