@@ -243,19 +243,21 @@ function App() {
         </div>
         <StyledLogo src="/config/images/logo.png"></StyledLogo>
       </FirstPage>
+
+
       <ThirdPage>
-        <div className={state? "left-image-move":"left-image"}>
+        <HideImage className={state? "left-image-move":"left-image"}>
           <span className="left-image-span">
             <span className="image-span"></span>
             <img className="hero" src="/config/images/hero.webp"></img>
           </span>
-        </div>
-        <div className={state? "right-image-move":"right-image"}>
+        </HideImage>
+        <HideImage className={state? "right-image-move":"right-image"}>
           <span className="left-image-span">
             <span className="image-span"></span>
             <img className="hero" src="/config/images/hero-right.webp"></img>
           </span>
-        </div>
+        </HideImage>
         <div style={{display: 'flex', width: '50%', marginTop: '100px'}}>
           <StyledLogo2 src="/config/images/logo.png"></StyledLogo2>
         </div>
@@ -372,7 +374,58 @@ function App() {
             )}
         </div>
       </ThirdPage>
-      <SecondPage></SecondPage>
+
+      <Page>
+      <div style={{marginTop: 'auto'}}>
+      <div class="slider">
+            <div class="slide-track">
+                  <div class="slide">
+                  <img src="/config/images/screen.png" height="300" width="300" alt="" />
+                  </div>
+                  <div class="slide">
+                  <img src="/config/images/screen.png" height="300" width="300" alt="" />
+                  </div>
+                  <div class="slide">
+                  <img src="/config/images/screen.png" height="300" width="300" alt="" />
+                  </div>
+                  <div class="slide">
+                  <img src="/config/images/screen.png" height="300" width="300" alt="" />
+                  </div>
+                  <div class="slide">
+                  <img src="/config/images/screen.png" height="300" width="300" alt="" />
+                  </div>
+                  <div class="slide">
+                  <img src="/config/images/screen.png" height="300" width="300" alt="" />
+                  </div>
+                  <div class="slide">
+                  <img src="/config/images/screen.png" height="300" width="300" alt="" />
+                  </div>
+                  <div class="slide">
+                  <img src="/config/images/screen.png" height="300" width="300" alt="" />
+                  </div>
+                  <div class="slide">
+                  <img src="/config/images/screen.png" height="300" width="300" alt="" />
+                  </div>
+                  <div class="slide">
+                  <img src="/config/images/screen.png" height="300" width="300" alt="" />
+                  </div>
+                  <div class="slide">
+                  <img src="/config/images/screen.png" height="300" width="300" alt="" />
+                  </div>
+                  <div class="slide">
+                  <img src="/config/images/screen.png" height="300" width="300" alt="" />
+                  </div>
+                  <div class="slide">
+                  <img src="/config/images/screen.png" height="300" width="300" alt="" />
+                  </div>
+                  <div class="slide">
+                  <img src="/config/images/screen.png" height="300" width="300" alt="" />
+                  </div>
+            </div>
+      </div>
+      </div>
+      </Page>
+
       <SecondPage>
         <div className="container">
             <div className="halfbox">
@@ -385,18 +438,17 @@ function App() {
                   Each Moon Vamp costs 60 $BLOOD to mint. If you don’t have enough you will be able to 
                   make up the difference with ETH.</s.TextDescription>
                 </div>
-                <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', width: '100%', height: '18%'}}>
+                <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', width: '100%', height: '20%'}}>
                  <StyledButton style={{margin: 'auto', marginLeft: '0px'}}>OPENSEA</StyledButton>
                 </div>
               </div>
             </div>
-            <div className="halfbox2" style={{width: '50%', height: '100%'}}>
-              <div className="imagecontainer" style={{margin: 'auto', width: '50%', height: '60%', marginLeft: '13%', marginTop: '25%'}}>
-                <img src="/config/images/dappr.webp" style={{width: '100%'}}></img>
-              </div>
+            <div className="halfbox2" style={{width: '50%', height: '100%', display: 'flex', justifyContent: 'center'}}>
+                <img src="/config/images/dappr.webp" style={{maxWidth: '100%', width: '70%', height: '80%', margin: 'auto'}}></img>
             </div>
         </div>
       </SecondPage>
+
 
       <footer>
         <div className="test" style={{width: '100%', height: '70px', backgroundColor: 'var(--secondary)'}}>
@@ -453,6 +505,14 @@ box-sizing: border-box;
   width: 28%;
   display: none;
 }
+@media (min-width: 2000px) {
+  visibility: hidden;
+  clear: both;
+  float: left;
+  margin: 10px auto 5px 20px;
+  width: 28%;
+  display: none;
+}
 `;
 
 export const ThirdPage = styled.div`
@@ -481,19 +541,35 @@ display: flex;
 flex-direction: column; 
 justify-self: center; 
 align-items: center; 
-height: 33vh; 
+height: 70vh; 
 minWidth: 100%;
 background-image: url("/config/images/back.webp");
 background-position: 50%; 
-background-repeat: no-repeat;
+background-repeat: no-repeat; 
 background-size: cover; 
 text-align: center; 
 box-sizing: border-box;
 @media (max-width: 900px) {
-  display: flex;
-  flex-direction: column;
-  justify-self: center;
-  align-items: center;
+  visibility: hidden;
+  clear: both;
+  float: left;
+  margin: 10px auto 5px 20px;
+  width: 28%;
+  display: none;
+}
+@media (min-width: 1850px) {
+  height: 55vh;
+}
+`;
+
+export const HideImage = styled.div`
+@media (max-width: 900px) {
+  visibility: hidden;
+  clear: both;
+  float: left;
+  margin: 10px auto 5px 20px;
+  width: 28%;
+  display: none;
 }
 `;
 

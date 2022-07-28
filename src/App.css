@@ -22,7 +22,6 @@
     background: pr;
     box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
     height: 100%;
-    margin-top: 20px;
     overflow: hidden;
     width: 100%;
     }
@@ -62,16 +61,22 @@
     width: 50%;
     height: 100%; 
     display: flex; 
-    margin-right: auto;
+    justify-content: center;
 }
 
 .content{ 
     margin: auto; 
     width: 50%; 
     height: 60%;
-    margin-right: 10%; 
-    margin-top: 18%;
+    margin-right: 15%;
 }
+
+@media (min-width: 1900px) {
+    .content{
+        margin-top: 24%;
+
+    }
+  }
 
 .imagebox{
     width: 100%; 
@@ -97,6 +102,7 @@
     pointer-events: none;
     transition: all 1.2s ease-in-out;
 }
+
 
 .left-image-move {
     opacity: 1;
