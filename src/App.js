@@ -5,28 +5,13 @@ import { fetchData } from "./redux/data/dataActions";
 import * as s from "./styles/globalStyles";
 import styled from "styled-components";
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import Accordion from 'react-bootstrap/Accordion';
 
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
 
-export const StyledButton = styled.button`
-  cursor: url(config/images/pointer.png), pointer; 
-  font-family: 'Freckle Face', cursive;
-  font-size: 20px;
-  padding: 15px;
-  border-radius: 40px;
-  border: none;
-  background-color: var(--secondary);
-  padding: 15px;
-  font-weight: bold;
-  color: var(--secondary-text);
-  width: 200px;
-  cursor: pointer;
-  box-shadow: 0px 2px 2px 1px #0F0F0F;
-  margin-top: '10px';
-  cursor: url(config/images/pointer.png), pointer;
-`;
 
 export const StyledRoundButton = styled.button`
   padding: 10px;
@@ -68,7 +53,7 @@ export const ResponsiveWrapper = styled.div`
 export const StyledLogo = styled.img`
 margin: auto;
 width: 50%;
-  @media (max-width: 400px) {
+  @media (max-width: 600px) {
     width: 90%;
     margin-top: 0;
     margin: auto;
@@ -76,24 +61,15 @@ width: 50%;
 `;
 
 export const StyledLogo2 = styled.img`
-width: 50%;
+width: 35%;
 margin: auto;
 margin-top: 10vh;
-  @media (max-width: 600px) {
-    width: 100%;
+  @media (orientation: portrait) {
+    width: 80%;
     margin: auto;
-    margin-top: 5vh;
   }
 `;
 
-export const MintText = styled.div`
-width: 38%;
-margin-top: 24px;
-text-align: center;
-  @media (max-width: 600px) {
-    width: 350px;
-  }
-`;
 
 export const StyledImg = styled.img`
   box-shadow: 0px 5px 11px 2px rgba(0, 0, 0, 0.7);
@@ -116,10 +92,57 @@ export const StyledLink = styled.a`
 `;
 
 export const Start = styled.div`
-cursor: url(config/images/ca.png), auto;
+//cursor: url(config/images/ca.png), auto;
 `;
 
 function App() {
+  
+  const changeDisplay1 = () => {
+    if(document.getElementById("faqBody1").style.display === "block"){
+       document.getElementById("faqBody1").style.display = "none";
+       document.getElementById("faqPage1").classList.remove('active');
+       
+    } else {
+      document.getElementById("faqBody1").style.display = "block";
+      document.getElementById("faqPage1").classList.add('active');
+    }
+  }
+  const changeDisplay2 = () => {
+    if(document.getElementById("faqBody2").style.display === "block"){
+       document.getElementById("faqBody2").style.display = "none";
+       document.getElementById("faqPage2").classList.remove('active');
+    } else {
+      document.getElementById("faqBody2").style.display = "block";
+      document.getElementById("faqPage2").classList.add('active');
+    }
+  }
+  const changeDisplay3 = () => {
+    if(document.getElementById("faqBody3").style.display === "block"){
+       document.getElementById("faqBody3").style.display = "none";
+       document.getElementById("faqPage3").classList.remove('active');
+    } else {
+      document.getElementById("faqBody3").style.display = "block";
+      document.getElementById("faqPage3").classList.add('active');
+    }
+  }
+  const changeDisplay4 = () => {
+    if(document.getElementById("faqBody4").style.display === "block"){
+       document.getElementById("faqBody4").style.display = "none";
+       document.getElementById("faqPage4").classList.remove('active');
+    } else {
+      document.getElementById("faqBody4").style.display = "block";
+      document.getElementById("faqPage4").classList.add('active');
+    }
+  }
+  const changeDisplay5 = () => {
+    if(document.getElementById("faqBody5").style.display === "block"){
+       document.getElementById("faqBody5").style.display = "none";
+       document.getElementById("faqPage5").classList.remove('active');
+    } else {
+      document.getElementById("faqBody5").style.display = "block";
+      document.getElementById("faqPage5").classList.add('active');
+    }
+  }
 
   const [state, setstate] = useState(false);
   const changeScroll = () => {
@@ -134,6 +157,7 @@ function App() {
   }
 
   window.addEventListener('scroll', changeScroll);
+
 
   const dispatch = useDispatch();
   const blockchain = useSelector((state) => state.blockchain);
@@ -234,18 +258,18 @@ function App() {
     getData();
   }, [blockchain.account]);
 
+
   return (
     <Start>
       <FirstPage>
         <div style={{width: '100%', display: 'flex', flexDirection: 'row-reverse'}}>
           <a href="https://www.google.de/?hl=de">
-          <img style={{width: '50px', marginRight: '5px', marginTop: '5px'}} src="/config/images/tw.png"></img>
+          <img className="icon" style={{width: '50px', marginRight: '20px', marginTop: '15px'}} src="/config/images/tw.png"></img>
           </a>
           <a href="https://www.google.de/?hl=de">
-          <img style={{width: '50px', marginRight: '5px', marginTop: '5px'}} src="/config/images/os.png"></img>
+          <img className="icon" style={{width: '50px', marginRight: '10px', marginTop: '15px'}} src="/config/images/os.png"></img>
           </a>
         </div>
-        <StyledLogo src="/config/images/logo.png"></StyledLogo>
       </FirstPage>
 
 
@@ -262,125 +286,125 @@ function App() {
             <img className="hero" src="/config/images/hero-right.webp"></img>
           </span>
         </HideImage>
-        <div style={{display: 'flex', width: '50%', marginTop: '100px'}}>
-          <StyledLogo2 src="/config/images/logo.png"></StyledLogo2>
-        </div>
-        <MintText>
-          <s.TextTitle>
-                      A 2,500 collection of Moon Vamps. You’ll need to have $BLOOD in 
-                      your wallet to mint. Each Moon Vamp costs 60 $BLOOD to mint. 
-                      If you don’t have enough you will be able to 
-                      make up the difference with ETH.
-          </s.TextTitle>
-        </MintText>
-        <div>
-        {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
-              <>
-                <s.TextTitle
-                  style={{ textAlign: "center", color: "var(--primary-text)" }}
-                >
-                  SOLD OUT
-                </s.TextTitle>
-                <s.SpacerSmall />
-                <StyledLink target={"_blank"} href={CONFIG.MARKETPLACE_LINK}>
-                  {CONFIG.MARKETPLACE}
-                </StyledLink>
-              </>
-            ) : (
-              <>
-                <s.SpacerXSmall />
-                <s.SpacerSmall />
-                {blockchain.account === "" ||
-                blockchain.smartContract === null ? (
-                  <s.Container ai={"center"} jc={"center"}>
-                    <s.SpacerSmall />
-                    <StyledButton
-                      onClick={(e) => {
-                        e.preventDefault();
-                        dispatch(connect());
-                        getData();
-                      }}
-                    >
-                      CONNECT WALLET
-                    </StyledButton>
-                    {blockchain.errorMsg !== "" ? (
-                      <>
-                        <s.SpacerSmall />
-                        <s.TextDescription
-                          style={{
-                            textAlign: "center",
-                            color: "var(--primary-text)",
-                          }}
-                        >
-                          {blockchain.errorMsg}
-                        </s.TextDescription>
-                      </>
-                    ) : null}
-                  </s.Container>
-                ) : (
-                  <>
-                    <s.TextDescription
-                      style={{
-                        textAlign: "center",
-                        color: "var(--primary-text)",
-                      }}
-                    >
-                      {feedback}
-                    </s.TextDescription>
-                    <s.SpacerMedium />
-                    <s.Container ai={"center"} jc={"center"} fd={"row"}>
-                      <StyledRoundButton
-                        style={{ lineHeight: 0.4 }}
-                        disabled={claimingNft ? 1 : 0}
+
+        <div className="middle-container" style={{marginTop: '2%'}}>
+            <StyledLogo2 src="/config/images/logo.png"></StyledLogo2>
+            <div style={{overflow: 'hidden', boxSizing: 'border-box', display: 'block'}}>
+              <p style={{visibility: 'inherit', maxWidth: '40ch', display: 'inline-block', marginBottom: '1em', margin: 0, 
+              fontFamily: '"Freckle Face", cursive', fontSize: '1.5rem', lineHeight: '1.5rem', 
+              marginBlockStart: '1em', marginInlineStart: '50px', marginInlineEnd: '50px'}}>
+                          A 2,500 collection of Moon Vamps. You’ll need to have $BLOOD in 
+                          your wallet to mint. Each Moon Vamp costs 60 $BLOOD to mint. 
+                          If you don’t have enough you will be able to 
+                          make up the difference with ETH.
+              </p>
+            </div>
+          <div>
+          {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
+                <>
+                  <s.TextTitle
+                    style={{ textAlign: "center", color: "var(--primary-text)" }}
+                  >
+                    SOLD OUT
+                  </s.TextTitle>
+                  <s.SpacerSmall />
+                  <StyledLink target={"_blank"} href={CONFIG.MARKETPLACE_LINK}>
+                    {CONFIG.MARKETPLACE}
+                  </StyledLink>
+                </>
+              ) : (
+                <>
+                  <s.SpacerXSmall />
+                  <s.SpacerSmall />
+                  {blockchain.account === "" ||
+                  blockchain.smartContract === null ? (
+                    <s.Container ai={"center"} jc={"center"}>
+                      <s.SpacerSmall />
+                      <div className="connect-button"
                         onClick={(e) => {
                           e.preventDefault();
-                          decrementMintAmount();
+                          dispatch(connect());
+                          getData();
                         }}
                       >
-                        -
-                      </StyledRoundButton>
-                      <s.SpacerMedium />
+                        CONNECT WALLET
+                      </div>
+                      {blockchain.errorMsg !== "" ? (
+                        <>
+                          <s.SpacerSmall />
+                          <s.TextDescription
+                            style={{
+                              textAlign: "center",
+                              color: "var(--primary-text)",
+                            }}
+                          >
+                            {blockchain.errorMsg}
+                          </s.TextDescription>
+                        </>
+                      ) : null}
+                    </s.Container>
+                  ) : (
+                    <>
                       <s.TextDescription
                         style={{
                           textAlign: "center",
                           color: "var(--primary-text)",
                         }}
                       >
-                        {mintAmount}
+                        {feedback}
                       </s.TextDescription>
                       <s.SpacerMedium />
-                      <StyledRoundButton
-                        disabled={claimingNft ? 1 : 0}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          incrementMintAmount();
-                        }}
-                      >
-                        +
-                      </StyledRoundButton>
-                    </s.Container>
-                    <s.SpacerSmall />
-                    <s.Container ai={"center"} jc={"center"} fd={"row"}>
-                      <StyledButton
-                        disabled={claimingNft ? 1 : 0}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          claimNFTs();
-                          getData();
-                        }}
-                      >
-                        {claimingNft ? "BUSY" : "BUY"}
-                      </StyledButton>
-                    </s.Container>
-                  </>
-                )}
-              </>
-            )}
+                      <s.Container ai={"center"} jc={"center"} fd={"row"}>
+                        <StyledRoundButton
+                          style={{ lineHeight: 0.4 }}
+                          disabled={claimingNft ? 1 : 0}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            decrementMintAmount();
+                          }}
+                        >
+                          -
+                        </StyledRoundButton>
+                        <s.SpacerMedium />
+                        <s.TextDescription
+                          style={{
+                            textAlign: "center",
+                            color: "var(--primary-text)",
+                          }}
+                        >
+                          {mintAmount}
+                        </s.TextDescription>
+                        <s.SpacerMedium />
+                        <StyledRoundButton
+                          disabled={claimingNft ? 1 : 0}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            incrementMintAmount();
+                          }}
+                        >
+                          +
+                        </StyledRoundButton>
+                      </s.Container>
+                      <s.SpacerSmall />
+                      <s.Container ai={"center"} jc={"center"} fd={"row"}>
+                        <div className="connect-button"
+                          disabled={claimingNft ? 1 : 0}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            claimNFTs();
+                            getData();
+                          }}
+                        >
+                          {claimingNft ? "MINTING..." : "MINT"}
+                        </div>
+                      </s.Container>
+                    </>
+                  )}
+                </>
+              )}
+          </div>
         </div>
       </SecondPage>
-
-      <Slider>
-      <div style={{marginTop: 'auto'}}>
       <div class="slider">
             <div class="slide-track">
                   <div class="slide">
@@ -427,29 +451,57 @@ function App() {
                   </div>
             </div>
       </div>
-      </div>
-      </Slider>
 
       <ThirdPage>
-        <div className="container">
-            <div className="halfbox">
-              <div className="content">
-                <div className="imagebox">
-                  <img className="logoimage" src="/config/images/logo.png"></img>
-                </div>
-                <div className="textbox">
-                  <s.TextDescription style={{fontSize: '24px', textAlign: 'left'}}>A 2,500 collection of Moon Vamps. You’ll need to have $BLOOD in your wallet to mint.
-                  Each Moon Vamp costs 60 $BLOOD to mint. If you don’t have enough you will be able to 
-                  make up the difference with ETH.</s.TextDescription>
-                </div>
-                <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', width: '100%', height: '20%'}}>
-                 <StyledButton style={{margin: 'auto', marginLeft: '0px'}}>OPENSEA</StyledButton>
-                </div>
+        <div className="faq-content">
+          <h1 className="faq-heading">FAQ'S</h1>
+          <section className="faq-container">
+            <div className="faq-one">
+              <h2 className="faq-page" id="faqPage1" onClick={changeDisplay1}>When will the mint be live?</h2>
+              <div className="faq-body" id="faqBody1" style={{display: 'none'}}>
+                <p>
+                  rgv54z56b4z56z34pjzüp34jv5zjhühj43vhj345zhü435vz45
+                </p>
               </div>
             </div>
-            <div className="halfbox2" style={{width: '50%', height: '100%', display: 'flex', justifyContent: 'center'}}>
-                <img src="/config/images/dappr.webp" style={{maxWidth: '100%', width: '70%', height: '80%', margin: 'auto'}}></img>
+            <hr className="hr-line"></hr>
+            <div className="faq-two">
+            <h2 className="faq-page" id="faqPage2" onClick={changeDisplay2}>What is the mint price?</h2>
+              <div className="faq-body" id="faqBody2" style={{display: 'none'}}>
+                <p>
+                  rgv54z56b4z56z34pjzüp34jv5zjhühj43vhj345zhü435vz45
+                </p>
+              </div>
             </div>
+            <hr className="hr-line"></hr>
+            <div className="faq-three">
+            <h2 className="faq-page" id="faqPage3" onClick={changeDisplay3}>When will travelling be available?</h2>
+              <div className="faq-body" id="faqBody3" style={{display: 'none'}}>
+                <p>
+                  rgv54z56b4z56z34pjzüp34jv5zjhühj43vhj345zhü435vz45
+                </p>
+              </div>
+            </div>
+            <hr className="hr-line"></hr>
+            <div className="faq-three">
+            <h2 className="faq-page" id="faqPage4" onClick={changeDisplay4}>How much does it cost to travel?</h2>
+              <div className="faq-body" id="faqBody4" style={{display: 'none'}}>
+                <p>
+                  rgv54z56b4z56z34pjzüp34jv5zjhühj43vhj345zhü435vz45
+                </p>
+              </div>
+            </div>
+            <hr className="hr-line"></hr>
+            <div className="faq-three">
+            <h2 className="faq-page" id="faqPage5" onClick={changeDisplay5}>How can I get a station/landmark?</h2>
+              <div className="faq-body" id="faqBody5" style={{display: 'none'}}>
+                <p>
+                  rgv54z56b4z56z34pjzüp34jv5zjhühj43vhj345zhü435vz45
+                </p>
+              </div>
+            </div>
+            <hr className="hr-line"></hr>
+          </section>
         </div>
       </ThirdPage>
 
@@ -477,7 +529,7 @@ justify-self: center;
 align-items: center; 
 height: 100vh; 
 minWidth: 100%;
-background-image: url("/config/images/isekai.jpg");
+background-image: linear-gradient(180deg,transparent 95%,#EDE9E6),linear-gradient(0deg,transparent 100%,#000), url("/config/images/supper.jpg");
 background-position: 50%; 
 background-repeat: no-repeat;
 background-size: cover; 
@@ -505,21 +557,8 @@ background-repeat: no-repeat;
 background-size: cover; 
 text-align: center; 
 box-sizing: border-box;
-@media (max-width: 900px) {
-  visibility: hidden;
-  clear: both;
-  float: left;
-  margin: 10px auto 5px 20px;
-  width: 28%;
-  display: none;
-}
-@media (min-width: 2000px) {
-  visibility: hidden;
-  clear: both;
-  float: left;
-  margin: 10px auto 5px 20px;
-  width: 28%;
-  display: none;
+@media (min-width: 1900px) {
+  height: 80vh;
 }
 `;
 
@@ -530,7 +569,7 @@ justify-self: center;
 align-items: center; 
 height: 90vh; 
 minWidth: 100%;
-background-image: url("/config/images/back.webp");
+background-image: linear-gradient(0deg,transparent 95%,#EDE9E6), url("/config/images/back.webp");
 background-position: 50%; 
 background-repeat: no-repeat;
 background-size: cover; 
@@ -542,6 +581,9 @@ box-sizing: border-box;
   justify-self: center;
   align-items: center;
 }
+@media (orientation: portrait) {
+  height: 65vh;
+}
 `;
 
 export const Slider = styled.div`
@@ -549,7 +591,7 @@ display: flex;
 flex-direction: column; 
 justify-self: center; 
 align-items: center; 
-height: 70vh; 
+height: 60vh; 
 minWidth: 100%;
 background-image: url("/config/images/back.webp");
 background-position: 50%; 
@@ -558,12 +600,7 @@ background-size: cover;
 text-align: center; 
 box-sizing: border-box;
 @media (max-width: 900px) {
-  visibility: hidden;
-  clear: both;
-  float: left;
-  margin: 10px auto 5px 20px;
-  width: 28%;
-  display: none;
+  height: 150vh;
 }
 @media (min-width: 1850px) {
   height: 45vh;
