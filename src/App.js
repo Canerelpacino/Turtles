@@ -145,7 +145,7 @@ function App() {
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
   const [claimingNft, setClaimingNft] = useState(false);
-  const [feedback, setFeedback] = useState(`Mint 1 of us for free per wallet. If you wanna mint more you greedy mf, you gotta pay 0.005 per NFT.`);
+  const [feedback, setFeedback] = useState(`1 FREE mint per wallet. If you are a greedy mf, additional mints cost 0.009 per Wabbit. 🐰🥕`);
   const [mintAmount, setMintAmount] = useState(1);
   const [CONFIG, SET_CONFIG] = useState({
     CONTRACT_ADDRESS: "",
@@ -280,7 +280,7 @@ function App() {
               <p id="text-box" style={{color: '#000', visibility: 'inherit', maxWidth: '29ch', display: 'inline-block', margin: 0,
               fontFamily: '"DynaPuff", cursive', fontSize: '1.5rem', lineHeight: '2rem', 
               marginBlockStart: '0em', marginInlineStart: '50px', marginInlineEnd: '50px'}}>
-                          A collection of 10,000 wabbits which will give you your carrot pass into the Wabbit-verse. What beautiful benefits will your Wabbit provide? Air-droppings? Mutations?
+                          10,000 Wabbits hopping around on the meadowchain. Welcome to the crunchy Carrotverse! Are you ready for what's coming? 👀🥕
 
               </p>
             </div>
@@ -456,7 +456,7 @@ function App() {
             <h2 className="faq-page" style={{fontFamily: '"DynaPuff", cursive', cursor: 'url(config/images/cursor.png), pointer'}} id="faqPage2" onClick={changeDisplay2}>What is the mint price?</h2>
               <div className="faq-body" id="faqBody2" style={{display: 'none'}}>
                 <p style={{fontFamily: '"DynaPuff", cursive'}}>
-                  It's free for all. Additional mints cost 0.005 eth per NFT.
+                  It's free for all. Additional mints cost 0.009 eth per Wabbit.
                 </p>
               </div>
             </div>
@@ -483,7 +483,7 @@ function App() {
             <h2 className="faq-page" style={{fontFamily: '"DynaPuff", cursive', cursor: 'url(config/images/cursor.png), pointer'}} id="faqPage5" onClick={changeDisplay5}>What is the maximum supply?</h2>
               <div className="faq-body" id="faqBody5" style={{display: 'none'}}>
                 <p style={{fontFamily: '"DynaPuff", cursive'}}>
-                  10,000 Wabbits will be around on the blockchain.
+                  10,000 Wabbits will be around on the meadowchain.
                 </p>
               </div>
             </div>
