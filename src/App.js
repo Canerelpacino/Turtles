@@ -37,10 +37,13 @@ width: 50%;
 export const StyledLogo2 = styled.img`
 width: 35%;
 margin: auto;
-margin-top: 10vh;
+margin-top: 7vh;
   @media (orientation: portrait) {
     width: 80%;
     margin: auto;
+  }
+  @media (min-width: 1900px) {
+    margin-top: 9vh;
   }
 `;
 
@@ -271,12 +274,12 @@ function App() {
         </HideImage>
 
         <div className="middle-container">
-            <StyledLogo2 src="/config/images/wabbits_logo.png"></StyledLogo2>
+            <StyledLogo2 src="/config/images/Logo-Wabbits.png"></StyledLogo2>
             <div style={{overflow: 'hidden', boxSizing: 'border-box', display: 'block'}}>
-              <p id="text-box" style={{color: '#000', visibility: 'inherit', maxWidth: '29ch', display: 'inline-block', marginBottom: '1em', margin: 0, 
+              <p id="text-box" style={{color: '#000', visibility: 'inherit', maxWidth: '29ch', display: 'inline-block', margin: 0, marginTop: '35px',
               fontFamily: '"DynaPuff", cursive', fontSize: '1.5rem', lineHeight: '2rem', 
               marginBlockStart: '0em', marginInlineStart: '50px', marginInlineEnd: '50px'}}>
-                          A collection of 10,000 wabbits which will give you your carrot pass into the Wabbit-verse. What beautiful benefits will your Wabbit provide? Air-droppings? Mutations? Pets? $carrots? You will have to wait and see... 
+                          A collection of 10,000 wabbits which will give you your carrot pass into the Wabbit-verse. What beautiful benefits will your Wabbit provide? Air-droppings? Mutations?
 
               </p>
             </div>
