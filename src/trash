@@ -1,50 +1,6 @@
-<Page>
-      <div class="slider">
-            <div class="slide-track">
-                  <div class="slide">
-                  <img src="/config/images/punk.png" height="300" width="300" alt="" />
-                  </div>
-                  <div class="slide">
-                  <img src="/config/images/punk.png" height="300" width="300" alt="" />
-                  </div>
-                  <div class="slide">
-                  <img src="/config/images/punk.png" height="300" width="300" alt="" />
-                  </div>
-                  <div class="slide">
-                  <img src="/config/images/punk.png" height="300" width="300" alt="" />
-                  </div>
-                  <div class="slide">
-                  <img src="/config/images/punk.png" height="300" width="300" alt="" />
-                  </div>
-                  <div class="slide">
-                  <img src="/config/images/punk.png" height="300" width="300" alt="" />
-                  </div>
-                  <div class="slide">
-                  <img src="/config/images/punk.png" height="300" width="300" alt="" />
-                  </div>
-                  <div class="slide">
-                  <img src="/config/images/punk.png" height="300" width="300" alt="" />
-                  </div>
-                  <div class="slide">
-                  <img src="/config/images/punk.png" height="300" width="300" alt="" />
-                  </div>
-                  <div class="slide">
-                  <img src="/config/images/punk.png" height="300" width="300" alt="" />
-                  </div>
-                  <div class="slide">
-                  <img src="/config/images/punk.png" height="300" width="300" alt="" />
-                  </div>
-                  <div class="slide">
-                  <img src="/config/images/punk.png" height="300" width="300" alt="" />
-                  </div>
-                  <div class="slide">
-                  <img src="/config/images/punk.png" height="300" width="300" alt="" />
-                  </div>
-                  <div class="slide">
-                  <img src="/config/images/punk.png" height="300" width="300" alt="" />
-                  </div>
-            </div>
-      </div>
-</Page>
-
-gerg
+<HideImage className={state? "right-image-move":"right-image"}>
+  <span className="left-image-span">
+    <span className="image-span"></span>
+    <img className="hero" src="/config/images/right_zombie.png"></img>
+  </span>
+</HideImage>

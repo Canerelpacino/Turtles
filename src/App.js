@@ -12,32 +12,6 @@ import Accordion from 'react-bootstrap/Accordion';
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
 
-
-export const StyledRoundButton = styled.button`
-  padding: 10px;
-  border-radius: 100%;
-  border: none;
-  background-color: var(--primary);
-  padding: 10px;
-  font-weight: bold;
-  font-size: 15px;
-  color: var(--primary-text);
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0px 4px 0px -2px rgba(250, 250, 250, 0.3);
-  -webkit-box-shadow: 0px 4px 0px -2px rgba(250, 250, 250, 0.3);
-  -moz-box-shadow: 0px 4px 0px -2px rgba(250, 250, 250, 0.3);
-  :active {
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-  }
-`;
-
 export const ResponsiveWrapper = styled.div`
   display: flex;
   flex: 1;
@@ -92,11 +66,15 @@ export const StyledLink = styled.a`
 `;
 
 export const Start = styled.div`
-//cursor: url(config/images/ca.png), auto;
+cursor: url(config/images/cursor.png), auto;
 `;
 
 function App() {
   
+  const mintClick = () => {
+    document.getElementById("text-box").style.display = "none";
+  }
+
   const changeDisplay1 = () => {
     if(document.getElementById("faqBody1").style.display === "block"){
        document.getElementById("faqBody1").style.display = "none";
@@ -148,7 +126,7 @@ function App() {
   const changeScroll = () => {
     
     const scrollValue = document.documentElement.scrollTop;
-    if(scrollValue>100){
+    if(scrollValue>500){
       setstate(true);
     } else {
       setstate(false);
@@ -163,7 +141,7 @@ function App() {
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
   const [claimingNft, setClaimingNft] = useState(false);
-  const [feedback, setFeedback] = useState(`Click MINT to mint your NFT.`);
+  const [feedback, setFeedback] = useState(`Mint 1 of us for free per wallet. If you wanna mint more you greedy mf, you gotta pay 0.005 per NFT.`);
   const [mintAmount, setMintAmount] = useState(1);
   const [CONFIG, SET_CONFIG] = useState({
     CONTRACT_ADDRESS: "",
@@ -186,6 +164,11 @@ function App() {
 
   const claimNFTs = () => {
     let cost = CONFIG.WEI_COST;
+
+    if(mintAmount > 1){
+      cost = 5000000000000000;
+    }
+
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalCostWei = String(cost * mintAmount);
     let totalGasLimit = String(gasLimit * mintAmount);
@@ -203,13 +186,13 @@ function App() {
       })
       .once("error", (err) => {
         console.log(err);
-        setFeedback("Sorry, something went wrong please try again later.");
+        setFeedback("Sorry, something went wrong.");
         setClaimingNft(false);
       })
       .then((receipt) => {
         console.log(receipt);
         setFeedback(
-          `WOW, the ${CONFIG.NFT_NAME} is yours! go visit Opensea.io to view it.`
+          `Mint successfull!`
         );
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));
@@ -264,10 +247,10 @@ function App() {
       <FirstPage>
         <div style={{width: '100%', display: 'flex', flexDirection: 'row-reverse'}}>
           <a href="https://www.google.de/?hl=de">
-          <img className="icon" style={{width: '50px', marginRight: '20px', marginTop: '15px'}} src="/config/images/tw.png"></img>
+          <img className="icon" style={{width: '60px', marginRight: '10px', marginTop: '15px', cursor: 'url(config/images/cursor.png), pointer'}} src="/config/images/os_wabbits.png"></img>
           </a>
           <a href="https://www.google.de/?hl=de">
-          <img className="icon" style={{width: '50px', marginRight: '10px', marginTop: '15px'}} src="/config/images/os.png"></img>
+          <img className="icon" style={{width: '53px', marginRight: '5px', marginTop: '22px', cursor: 'url(config/images/cursor.png), pointer'}} src="/config/images/twitter_wabbits.png"></img>
           </a>
         </div>
       </FirstPage>
@@ -277,26 +260,24 @@ function App() {
         <HideImage className={state? "left-image-move":"left-image"}>
           <span className="left-image-span">
             <span className="image-span"></span>
-            <img className="hero" src="/config/images/hero.webp"></img>
+            <img className="hero" src="/config/images/left.png"></img>
           </span>
         </HideImage>
         <HideImage className={state? "right-image-move":"right-image"}>
           <span className="left-image-span">
             <span className="image-span"></span>
-            <img className="hero" src="/config/images/hero-right.webp"></img>
+            <img className="hero" src="/config/images/right_zombie.png"></img>
           </span>
         </HideImage>
 
-        <div className="middle-container" style={{marginTop: '2%'}}>
-            <StyledLogo2 src="/config/images/logo.png"></StyledLogo2>
+        <div className="middle-container">
+            <StyledLogo2 src="/config/images/wabbits_logo.png"></StyledLogo2>
             <div style={{overflow: 'hidden', boxSizing: 'border-box', display: 'block'}}>
-              <p style={{visibility: 'inherit', maxWidth: '40ch', display: 'inline-block', marginBottom: '1em', margin: 0, 
-              fontFamily: '"Freckle Face", cursive', fontSize: '1.5rem', lineHeight: '1.5rem', 
-              marginBlockStart: '1em', marginInlineStart: '50px', marginInlineEnd: '50px'}}>
-                          A 2,500 collection of Moon Vamps. You’ll need to have $BLOOD in 
-                          your wallet to mint. Each Moon Vamp costs 60 $BLOOD to mint. 
-                          If you don’t have enough you will be able to 
-                          make up the difference with ETH.
+              <p id="text-box" style={{color: '#000', visibility: 'inherit', maxWidth: '29ch', display: 'inline-block', marginBottom: '1em', margin: 0, 
+              fontFamily: '"DynaPuff", cursive', fontSize: '1.5rem', lineHeight: '2rem', 
+              marginBlockStart: '0em', marginInlineStart: '50px', marginInlineEnd: '50px'}}>
+                          A collection of 10,000 wabbits which will give you your carrot pass into the Wabbit-verse. What beautiful benefits will your Wabbit provide? Air-droppings? Mutations? Pets? $carrots? You will have to wait and see... 
+
               </p>
             </div>
           <div>
@@ -320,12 +301,14 @@ function App() {
                   blockchain.smartContract === null ? (
                     <s.Container ai={"center"} jc={"center"}>
                       <s.SpacerSmall />
-                      <div className="connect-button"
+                      <div style={{cursor: 'url(config/images/cursor.png), pointer'}} className="connect-button"
                         onClick={(e) => {
                           e.preventDefault();
                           dispatch(connect());
                           getData();
+                          mintClick();
                         }}
+                        
                       >
                         CONNECT WALLET
                       </div>
@@ -345,18 +328,17 @@ function App() {
                     </s.Container>
                   ) : (
                     <>
-                      <s.TextDescription
-                        style={{
-                          textAlign: "center",
-                          color: "var(--primary-text)",
-                        }}
-                      >
-                        {feedback}
-                      </s.TextDescription>
+                      <div style={{overflow: 'hidden', boxSizing: 'border-box', display: 'block'}}>
+                        <p id="text-box" style={{color: '#000', visibility: 'inherit', maxWidth: '29ch', display: 'inline-block', marginBottom: '1em', margin: 0, 
+                        fontFamily: '"DynaPuff", cursive', fontSize: '1.5rem', lineHeight: '2rem', 
+                        marginBlockStart: '0em', marginInlineStart: '50px', marginInlineEnd: '50px'}}>
+                                    {feedback}
+                        </p>
+                      </div>
                       <s.SpacerMedium />
                       <s.Container ai={"center"} jc={"center"} fd={"row"}>
-                        <StyledRoundButton
-                          style={{ lineHeight: 0.4 }}
+                        <btn className="round-button"
+                          style={{ lineHeight: 0.4, cursor: 'url(config/images/cursor.png), pointer'}}
                           disabled={claimingNft ? 1 : 0}
                           onClick={(e) => {
                             e.preventDefault();
@@ -364,10 +346,11 @@ function App() {
                           }}
                         >
                           -
-                        </StyledRoundButton>
+                        </btn>
                         <s.SpacerMedium />
-                        <s.TextDescription
+                        <s.TextDescription id="mint-amount"
                           style={{
+                            fontSize: '30px',
                             textAlign: "center",
                             color: "var(--primary-text)",
                           }}
@@ -375,7 +358,8 @@ function App() {
                           {mintAmount}
                         </s.TextDescription>
                         <s.SpacerMedium />
-                        <StyledRoundButton
+                        <btn className="round-button"
+                          style={{cursor: 'url(config/images/cursor.png), pointer'}}
                           disabled={claimingNft ? 1 : 0}
                           onClick={(e) => {
                             e.preventDefault();
@@ -383,7 +367,7 @@ function App() {
                           }}
                         >
                           +
-                        </StyledRoundButton>
+                        </btn>
                       </s.Container>
                       <s.SpacerSmall />
                       <s.Container ai={"center"} jc={"center"} fd={"row"}>
@@ -405,115 +389,113 @@ function App() {
           </div>
         </div>
       </SecondPage>
-      <div class="slider">
+      <div class="slider" style={{backgroundImage: 'url("config/images/paw_background.png")'}}>
             <div class="slide-track">
                   <div class="slide">
-                  <img src="/config/images/screen.png" height="300" width="300" alt="" />
+                  <img style={{borderRadius: '35px'}} src="/config/slider/1.png" height="300" width="300" alt="" />
                   </div>
                   <div class="slide">
-                  <img src="/config/images/screen.png" height="300" width="300" alt="" />
+                  <img style={{borderRadius: '35px'}} src="/config/slider/2.png" height="300" width="300" alt="" />
                   </div>
                   <div class="slide">
-                  <img src="/config/images/screen.png" height="300" width="300" alt="" />
+                  <img style={{borderRadius: '35px'}} src="/config/slider/3.png" height="300" width="300" alt="" />
                   </div>
                   <div class="slide">
-                  <img src="/config/images/screen.png" height="300" width="300" alt="" />
+                  <img style={{borderRadius: '35px'}} src="/config/slider/4.png" height="300" width="300" alt="" />
                   </div>
                   <div class="slide">
-                  <img src="/config/images/screen.png" height="300" width="300" alt="" />
+                  <img style={{borderRadius: '35px'}} src="/config/slider/5.png" height="300" width="300" alt="" />
                   </div>
                   <div class="slide">
-                  <img src="/config/images/screen.png" height="300" width="300" alt="" />
+                  <img style={{borderRadius: '35px'}} src="/config/slider/6.png" height="300" width="300" alt="" />
                   </div>
                   <div class="slide">
-                  <img src="/config/images/screen.png" height="300" width="300" alt="" />
+                  <img style={{borderRadius: '35px'}} src="/config/slider/7.png" height="300" width="300" alt="" />
                   </div>
                   <div class="slide">
-                  <img src="/config/images/screen.png" height="300" width="300" alt="" />
+                  <img style={{borderRadius: '35px'}} src="/config/slider/8.png" height="300" width="300" alt="" />
                   </div>
                   <div class="slide">
-                  <img src="/config/images/screen.png" height="300" width="300" alt="" />
+                  <img style={{borderRadius: '35px'}} src="/config/slider/9.png" height="300" width="300" alt="" />
                   </div>
                   <div class="slide">
-                  <img src="/config/images/screen.png" height="300" width="300" alt="" />
+                  <img style={{borderRadius: '35px'}} src="/config/slider/10.png" height="300" width="300" alt="" />
                   </div>
                   <div class="slide">
-                  <img src="/config/images/screen.png" height="300" width="300" alt="" />
+                  <img style={{borderRadius: '35px'}} src="/config/slider/11.png" height="300" width="300" alt="" />
                   </div>
                   <div class="slide">
-                  <img src="/config/images/screen.png" height="300" width="300" alt="" />
+                  <img style={{borderRadius: '35px'}} src="/config/slider/12.png" height="300" width="300" alt="" />
                   </div>
                   <div class="slide">
-                  <img src="/config/images/screen.png" height="300" width="300" alt="" />
+                  <img style={{borderRadius: '35px'}} src="/config/slider/13.png" height="300" width="300" alt="" />
                   </div>
                   <div class="slide">
-                  <img src="/config/images/screen.png" height="300" width="300" alt="" />
+                  <img style={{borderRadius: '35px'}} src="/config/slider/14.png" height="300" width="300" alt="" />
                   </div>
             </div>
       </div>
-
-      <ThirdPage>
+      <div style={{backgroundImage: 'url("/config/images/paw_background.png")'}}>
         <div className="faq-content">
-          <h1 className="faq-heading">FAQ'S</h1>
+          <h1 className="faq-heading" style={{fontFamily: '"DynaPuff", cursive'}}>FAQ'S</h1>
           <section className="faq-container">
             <div className="faq-one">
-              <h2 className="faq-page" id="faqPage1" onClick={changeDisplay1}>When will the mint be live?</h2>
+              <h2 className="faq-page" style={{fontFamily: '"DynaPuff", cursive', cursor: 'url(config/images/cursor.png), pointer'}} id="faqPage1" onClick={changeDisplay1}>When will the mint be live?</h2>
               <div className="faq-body" id="faqBody1" style={{display: 'none'}}>
-                <p>
-                  rgv54z56b4z56z34pjzüp34jv5zjhühj43vhj345zhü435vz45
+                <p style={{fontFamily: '"DynaPuff", cursive'}}>
+                Probably right now dumbass.
                 </p>
               </div>
             </div>
             <hr className="hr-line"></hr>
             <div className="faq-two">
-            <h2 className="faq-page" id="faqPage2" onClick={changeDisplay2}>What is the mint price?</h2>
+            <h2 className="faq-page" style={{fontFamily: '"DynaPuff", cursive', cursor: 'url(config/images/cursor.png), pointer'}} id="faqPage2" onClick={changeDisplay2}>What is the mint price?</h2>
               <div className="faq-body" id="faqBody2" style={{display: 'none'}}>
-                <p>
-                  rgv54z56b4z56z34pjzüp34jv5zjhühj43vhj345zhü435vz45
+                <p style={{fontFamily: '"DynaPuff", cursive'}}>
+                  It's free for all. Additional mints cost 0.005 eth per NFT.
                 </p>
               </div>
             </div>
             <hr className="hr-line"></hr>
             <div className="faq-three">
-            <h2 className="faq-page" id="faqPage3" onClick={changeDisplay3}>When will travelling be available?</h2>
+            <h2 className="faq-page" style={{fontFamily: '"DynaPuff", cursive', cursor: 'url(config/images/cursor.png), pointer'}} id="faqPage3" onClick={changeDisplay3}>How many can I mint?</h2>
               <div className="faq-body" id="faqBody3" style={{display: 'none'}}>
-                <p>
-                  rgv54z56b4z56z34pjzüp34jv5zjhühj43vhj345zhü435vz45
+                <p style={{fontFamily: '"DynaPuff", cursive'}}>
+                  1 free per wallet. 10 per tnx for additional mints.
                 </p>
               </div>
             </div>
             <hr className="hr-line"></hr>
             <div className="faq-three">
-            <h2 className="faq-page" id="faqPage4" onClick={changeDisplay4}>How much does it cost to travel?</h2>
+            <h2 className="faq-page" style={{fontFamily: '"DynaPuff", cursive', cursor: 'url(config/images/cursor.png), pointer'}} id="faqPage4" onClick={changeDisplay4}>What are $carrots?</h2>
               <div className="faq-body" id="faqBody4" style={{display: 'none'}}>
-                <p>
-                  rgv54z56b4z56z34pjzüp34jv5zjhühj43vhj345zhü435vz45
+                <p style={{fontFamily: '"DynaPuff", cursive'}}>
+                  I guess we'll never know. Or... will we?
                 </p>
               </div>
             </div>
             <hr className="hr-line"></hr>
             <div className="faq-three">
-            <h2 className="faq-page" id="faqPage5" onClick={changeDisplay5}>How can I get a station/landmark?</h2>
+            <h2 className="faq-page" style={{fontFamily: '"DynaPuff", cursive', cursor: 'url(config/images/cursor.png), pointer'}} id="faqPage5" onClick={changeDisplay5}>What is the maximum supply?</h2>
               <div className="faq-body" id="faqBody5" style={{display: 'none'}}>
-                <p>
-                  rgv54z56b4z56z34pjzüp34jv5zjhühj43vhj345zhü435vz45
+                <p style={{fontFamily: '"DynaPuff", cursive'}}>
+                  10,000 Wabbits will be around on the blockchain.
                 </p>
               </div>
             </div>
             <hr className="hr-line"></hr>
           </section>
         </div>
-      </ThirdPage>
-
+      </div>
 
       <footer>
         <div className="test" style={{width: '100%', height: '70px', backgroundColor: 'var(--secondary)'}}>
           <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', width: '100%'}}>
             <a href="https://www.google.de/?hl=de">
-            <img src="/config/images/tw.png" style={{width: '40px', marginTop: '12px', marginRight: '10%'}}></img>
+            <img src="/config/images/TW-Wabbits.png" style={{width: '50px', marginTop: '12px', marginRight: '10%'}}></img>
             </a>
             <a href="https://www.google.de/?hl=de">
-            <img src="/config/images/os.png" style={{width: '40px', marginTop: '12px', marginLeft: '10%'}}></img>
+            <img src="/config/images/OS-Wabbits.png" style={{width: '50px', marginTop: '12px', marginLeft: '10%'}}></img>
             </a>
           </div>
         </div>
@@ -529,7 +511,7 @@ justify-self: center;
 align-items: center; 
 height: 100vh; 
 minWidth: 100%;
-background-image: linear-gradient(180deg,transparent 95%,#EDE9E6),linear-gradient(0deg,transparent 100%,#000), url("/config/images/supper.jpg");
+background-image: linear-gradient(0deg,transparent 90%,#000), linear-gradient(180deg,transparent 100%,#F8F6F4), url("/config/images/last_supper.jpg");
 background-position: 50%; 
 background-repeat: no-repeat;
 background-size: cover; 
@@ -549,9 +531,9 @@ display: flex;
 flex-direction: column; 
 justify-self: center; 
 align-items: center; 
-height: 100vh; 
+height: 85vh; 
 minWidth: 100%;
-background-image: url("/config/images/back.webp");
+background-image: url("/config/images/paw_background.png");
 background-position: 50%; 
 background-repeat: no-repeat;
 background-size: cover; 
@@ -567,22 +549,16 @@ display: flex;
 flex-direction: column; 
 justify-self: center; 
 align-items: center; 
-height: 90vh; 
+height: 85vh; 
 minWidth: 100%;
-background-image: linear-gradient(0deg,transparent 95%,#EDE9E6), url("/config/images/back.webp");
+background-image: url("/config/images/paw_background.png");
 background-position: 50%; 
 background-repeat: no-repeat;
 background-size: cover; 
 text-align: center; 
 box-sizing: border-box;
 @media (max-width: 900px) {
-  display: flex;
-  flex-direction: column;
-  justify-self: center;
-  align-items: center;
-}
-@media (orientation: portrait) {
-  height: 65vh;
+  height: 80vh;
 }
 `;
 
@@ -593,7 +569,7 @@ justify-self: center;
 align-items: center; 
 height: 60vh; 
 minWidth: 100%;
-background-image: url("/config/images/back.webp");
+background-image: url("/config/images/paw_background.png");
 background-position: 50%; 
 background-repeat: no-repeat; 
 background-size: cover; 
