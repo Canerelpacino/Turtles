@@ -204,6 +204,8 @@ div{
 
 @media screen and (max-width: 915px){
 .faq-content {
+    padding-top: 9vw;
+    padding-bottom: 9vw;
     max-width: 100%;
     max-height: 100%;
 }

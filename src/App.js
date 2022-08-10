@@ -43,6 +43,7 @@ margin-top: 7vh;
     margin: auto;
   }
   @media (min-width: 1900px) {
+    width: 30%;
     margin-top: 9vh;
   }
 `;
@@ -275,8 +276,8 @@ function App() {
 
         <div className="middle-container">
             <StyledLogo2 src="/config/images/Logo-Wabbits.png"></StyledLogo2>
-            <div style={{overflow: 'hidden', boxSizing: 'border-box', display: 'block'}}>
-              <p id="text-box" style={{color: '#000', visibility: 'inherit', maxWidth: '29ch', display: 'inline-block', margin: 0, marginTop: '35px',
+            <div style={{overflow: 'hidden', boxSizing: 'border-box', display: 'block', marginTop: '24px'}}>
+              <p id="text-box" style={{color: '#000', visibility: 'inherit', maxWidth: '29ch', display: 'inline-block', margin: 0,
               fontFamily: '"DynaPuff", cursive', fontSize: '1.5rem', lineHeight: '2rem', 
               marginBlockStart: '0em', marginInlineStart: '50px', marginInlineEnd: '50px'}}>
                           A collection of 10,000 wabbits which will give you your carrot pass into the Wabbit-verse. What beautiful benefits will your Wabbit provide? Air-droppings? Mutations?
