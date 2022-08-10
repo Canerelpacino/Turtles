@@ -145,7 +145,7 @@ function App() {
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
   const [claimingNft, setClaimingNft] = useState(false);
-  const [feedback, setFeedback] = useState(`1 FREE mint per wallet. If you are a greedy mf, additional mints cost 0.009 per Wabbit. 🐰🥕`);
+  const [feedback, setFeedback] = useState(`1 FREE mint per wallet. If you are a greedy mf, additional mints costs 0.009 per Wabbit. 🐰🥕`);
   const [mintAmount, setMintAmount] = useState(1);
   const [CONFIG, SET_CONFIG] = useState({
     CONTRACT_ADDRESS: "",
@@ -456,7 +456,7 @@ function App() {
             <h2 className="faq-page" style={{fontFamily: '"DynaPuff", cursive', cursor: 'url(config/images/cursor.png), pointer'}} id="faqPage2" onClick={changeDisplay2}>What is the mint price?</h2>
               <div className="faq-body" id="faqBody2" style={{display: 'none'}}>
                 <p style={{fontFamily: '"DynaPuff", cursive'}}>
-                  It's free for all. Additional mints cost 0.009 eth per Wabbit.
+                  It's free for all. Additional mints costs 0.009 eth per Wabbit.
                 </p>
               </div>
             </div>
