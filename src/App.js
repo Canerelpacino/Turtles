@@ -496,7 +496,7 @@ function App() {
       <footer>
         <div className="test" style={{width: '100%', height: '70px', backgroundColor: 'var(--secondary)'}}>
           <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', width: '100%'}}>
-            <a href="https://www.google.de/?hl=de">
+            <a href="https://twitter.com/nftwabbits">
             <img src="/config/images/TW-Wabbits.png" style={{width: '50px', marginTop: '12px', marginRight: '10%'}}></img>
             </a>
             <a href="https://www.google.de/?hl=de">
