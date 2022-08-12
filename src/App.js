@@ -71,7 +71,8 @@ export const StyledLink = styled.a`
 
 export const Start = styled.div`
 cursor: url(config/images/cursor.png), auto;
-`;
+scroll-behavior: smooth;
+`; 
 
 function App() {
   
