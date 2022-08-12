@@ -1,14 +1,14 @@
 {
-  "CONTRACT_ADDRESS": "0x28Aca47dD6112499A6d1D416244Af3449a2112AC",
-  "SCAN_LINK": "https://rinkeby.etherscan.io/address/0x28aca47dd6112499a6d1d416244af3449a2112ac",
+  "CONTRACT_ADDRESS": "0x5e3217B92A69147eC6e8675669819Ed718aD6b4A",
+  "SCAN_LINK": "https://etherscan.io/address/0x5e3217b92a69147ec6e8675669819ed718ad6b4a",
   "NETWORK": {
-    "NAME": "Rinkeby",
+    "NAME": "Ethereum",
     "SYMBOL": "ETH",
-    "ID": 4
+    "ID": 1
   },
   "NFT_NAME": "Wabbit",
   "SYMBOL": "WB",
-  "MAX_SUPPLY": 1000,
+  "MAX_SUPPLY": 10000,
   "WEI_COST": 0,
   "DISPLAY_COST": 0,
   "GAS_LIMIT": 120000,
