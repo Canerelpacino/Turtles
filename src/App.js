@@ -396,7 +396,7 @@ function App() {
       <div class="slider" style={{backgroundImage: 'url("config/images/paw_background.png")'}}>
             <div class="slide-track">
                   <div class="slide">
-                  <img style={{borderRadius: '35px'}} src="/config/slider/1.png" height="300" width="300" alt="" />
+                  <img style={{borderRadius: '35px'}} src="/config/slider/14.png" height="300" width="300" alt="" />
                   </div>
                   <div class="slide">
                   <img style={{borderRadius: '35px'}} src="/config/slider/2.png" height="300" width="300" alt="" />
@@ -405,13 +405,13 @@ function App() {
                   <img style={{borderRadius: '35px'}} src="/config/slider/3.png" height="300" width="300" alt="" />
                   </div>
                   <div class="slide">
-                  <img style={{borderRadius: '35px'}} src="/config/slider/4.png" height="300" width="300" alt="" />
+                  <img style={{borderRadius: '35px'}} src="/config/slider/1.png" height="300" width="300" alt="" />
                   </div>
                   <div class="slide">
-                  <img style={{borderRadius: '35px'}} src="/config/slider/5.png" height="300" width="300" alt="" />
+                  <img style={{borderRadius: '35px'}} src="/config/slider/10.png" height="300" width="300" alt="" />
                   </div>
                   <div class="slide">
-                  <img style={{borderRadius: '35px'}} src="/config/slider/6.png" height="300" width="300" alt="" />
+                  <img style={{borderRadius: '35px'}} src="/config/slider/9.png" height="300" width="300" alt="" />
                   </div>
                   <div class="slide">
                   <img style={{borderRadius: '35px'}} src="/config/slider/7.png" height="300" width="300" alt="" />
@@ -420,10 +420,10 @@ function App() {
                   <img style={{borderRadius: '35px'}} src="/config/slider/8.png" height="300" width="300" alt="" />
                   </div>
                   <div class="slide">
-                  <img style={{borderRadius: '35px'}} src="/config/slider/9.png" height="300" width="300" alt="" />
+                  <img style={{borderRadius: '35px'}} src="/config/slider/6.png" height="300" width="300" alt="" />
                   </div>
                   <div class="slide">
-                  <img style={{borderRadius: '35px'}} src="/config/slider/10.png" height="300" width="300" alt="" />
+                  <img style={{borderRadius: '35px'}} src="/config/slider/5.png" height="300" width="300" alt="" />
                   </div>
                   <div class="slide">
                   <img style={{borderRadius: '35px'}} src="/config/slider/11.png" height="300" width="300" alt="" />
@@ -435,7 +435,7 @@ function App() {
                   <img style={{borderRadius: '35px'}} src="/config/slider/13.png" height="300" width="300" alt="" />
                   </div>
                   <div class="slide">
-                  <img style={{borderRadius: '35px'}} src="/config/slider/14.png" height="300" width="300" alt="" />
+                  <img style={{borderRadius: '35px'}} src="/config/slider/4.png" height="300" width="300" alt="" />
                   </div>
             </div>
       </div>
