@@ -162,8 +162,6 @@ function App() {
     WEI_COST: 0,
     DISPLAY_COST: 0,
     GAS_LIMIT: 0,
-    MARKETPLACE: "",
-    MARKETPLACE_LINK: "",
     SHOW_BACKGROUND: false,
   });
 
@@ -294,9 +292,6 @@ function App() {
                     SOLD OUT
                   </s.TextTitle>
                   <s.SpacerSmall />
-                  <StyledLink target={"_blank"} href={CONFIG.MARKETPLACE_LINK}>
-                    {CONFIG.MARKETPLACE}
-                  </StyledLink>
                 </>
               ) : (
                 <>
