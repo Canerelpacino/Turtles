@@ -31,6 +31,8 @@ const updateAccountRequest = (payload) => {
   };
 };
 
+export const isconnected = false;
+
 export const connect = () => {
   return async (dispatch) => {
     dispatch(connectRequest());

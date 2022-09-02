@@ -124,8 +124,8 @@ table {
 }
 
 @font-face {
-  font-family: "coder";
-  src: local("coder"), url(font.woff) format("woff");
+  font-family: "Caribbean";
+  src: local("/src/styles/Turtles.otf"), url(Turtles.otf) format("opentype");
 }
 
 body {

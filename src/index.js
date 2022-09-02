@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import "./styles/reset.css";
 import 'bootstrap/dist/css/bootstrap.css';
 
+
 ReactDOM.render(
   <Provider store={store}>
     <App />
