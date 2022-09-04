@@ -122,26 +122,51 @@ function App() {
   };
 
   return (
-    <div  style={{scrollBehavior: 'smooth'}}>
+    <div>
 
       <FirstPage>
-      <img src="/config/images/tw.png" style={{width: '80px', position: 'fixed', top: '20px', right: '255px'}} className="tw"></img>
-      <img src="/config/images/os.png" style={{width: '80px', position: 'fixed', top: '20px', right: '338px'}} className="os"></img>
-      <img src="/config/images/etherscan.png" style={{width: '80px', position: 'fixed', top: '20px', right: '423px'}} className="etherscan"></img>
+      {/*Background*/}
+      <img src="/config/images/canerelpacino.jpg" style={{maxWidth: '100%', maxHeight: '100%'}}></img>
 
+      {/*Socials*/}
+      <a href="https://www.google.com/" target="_blank">
+      <img src="/config/images/tw.png" style={{width: '80px', position: 'fixed', top: '20px', right: '255px', zIndex: '10'}} className="tw"></img>
+      </a>
+      <a href="https://www.google.com/" target="_blank">
+      <img src="/config/images/os.png" style={{width: '80px', position: 'fixed', top: '20px', right: '338px', zIndex: '10'}} className="os"></img>
+      </a>
+      <a href="https://www.google.com/" target="_blank">
+      <img src="/config/images/etherscan.png" style={{width: '80px', position: 'fixed', top: '20px', right: '423px', zIndex: '10'}} className="etherscan"></img>
+      </a>
+      <img style={{width: '250px', position: 'fixed', top: '15px', right: '15px', zIndex: '10'}} id="connectbtn" className="connect-button" src="/config/images/connect-btn.png"
+           onClick={(e) => {
+            e.preventDefault();
+            dispatch(connect());
+            getData();
+            }}           
+            >
+        </img>
+        <div id="connected-btn" style={{display: 'none', position: 'fixed', top: '45px', right: '50px', color: '#C88D27'}} className="connected-button"    
+            >
+            CONNECTED
+        </div>
+
+      {/*Logo*/}
        <div className="header">
          <img src="/config/images/logger.png" style={{width: '55%'}}></img>
        </div>
 
+      {/*Text 1*/}
        <div className="ocean-box">
-          <h2 style={{color: 'white', fontFamily: "Caribbean", textAlign: 'center', fontSize: '48px'}}>THE BIGGEST KILLER IN OCEAN.</h2>
-          <p style={{color: 'white', fontFamily: "Caribbean", fontSize: '30px', padding: '24px'}}>Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic which come from longer plastics that have degraded over time.
+          <h2 style={{color: 'white', fontFamily: "Caribbean", textAlign: 'center', fontSize: '48px', textShadow: '3px 3px black'}}>A NON-PROFIT NFT COLLECTION HELPING SEA TURTLES TO SURVIVE.</h2>
+          <p style={{color: 'white', fontFamily: "Caribbean", fontSize: '30px', padding: '24px', textShadow: '3px 3px black'}}>Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic which come from longer plastics that have degraded over time.
           Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic.</p>
        </div>
 
+      {/*Text 2*/}
        <div id="mint-text" className="mint-text">
-        <h2 style={{color: 'white', fontFamily: "Caribbean", textAlign: 'center', fontSize: '48px'}}>THE BIGGEST KILLER IN OCEAN.</h2>
-        <p style={{color: 'white', fontFamily: "Caribbean", fontSize: '30px', padding: '24px'}}>Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic which come from longer plastics that have degraded over time.
+        <h2 style={{color: 'white', fontFamily: "Caribbean", textAlign: 'center', fontSize: '48px', textShadow: '3px 3px black'}}>THE BIGGEST KILLER IN OCEAN.</h2>
+        <p style={{color: 'white', fontFamily: "Caribbean", fontSize: '30px', padding: '24px', textShadow: '3px 3px black'}}>Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic which come from longer plastics that have degraded over time.
         Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic.</p>
         <div style={{display: 'flex', justifyContent: 'center', marginTop: '10px'}}>
         <img id="connectbtn2" style={{width: '300px'}} src="/config/images/connect-btn.png" className="connect-button"
@@ -154,24 +179,8 @@ function App() {
         </img>
         </div>
        </div>
-
-
-      <img style={{width: '250px', position: 'fixed', top: '15px', right: '15px'}} id="connectbtn" className="connect-button" src="/config/images/connect-btn.png"
-           onClick={(e) => {
-            e.preventDefault();
-            dispatch(connect());
-            getData();
-            }}
-                        
-            >
-            
-        </img>
-
-        <div id="connected-btn" style={{display: 'none', position: 'fixed', top: '45px', right: '50px', color: '#C88D27'}} className="connected-button"    
-            >
-            CONNECTED
-        </div>
       
+      {/*Mint Section*/}
       <div className="mint2">
           {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
                 <>
@@ -276,11 +285,6 @@ display: flex;
 flex-direction: column; 
 justify-self: center; 
 align-items: center; 
-height: 490vh; 
-minWidth: 100%;
-background-image: url("/config/images/canerelpacino.jpg");
-background-repeat: no-repeat;
-background-size: cover; 
 text-align: center; 
 box-sizing: border-box;
 @media (max-width: 900px) {
