@@ -122,11 +122,9 @@ function App() {
   };
 
   return (
-    <div>
-
       <FirstPage>
       {/*Background*/}
-      <img src="/config/images/canerelpacino.jpg" style={{maxWidth: '100%', maxHeight: '100%'}}></img>
+      <img src="/config/images/canerelpacino.jpg" style={{maxWidth: '100%', maxHeight: '100%', position: 'relative'}}></img>
 
       {/*Socials*/}
       <a href="https://www.google.com/" target="_blank">
@@ -153,23 +151,28 @@ function App() {
 
       {/*Logo*/}
        <div className="header">
-         <img src="/config/images/logger.png" style={{width: '55%'}}></img>
+          <img src="/config/images/logger.png" style={{width: '55%'}}></img>
        </div>
 
       {/*Text 1*/}
        <div className="ocean-box">
-          <h2 style={{color: 'white', fontFamily: "Caribbean", textAlign: 'center', fontSize: '48px', textShadow: '3px 3px black'}}>A NON-PROFIT NFT COLLECTION HELPING SEA TURTLES TO SURVIVE.</h2>
-          <p style={{color: 'white', fontFamily: "Caribbean", fontSize: '30px', padding: '24px', textShadow: '3px 3px black'}}>Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic which come from longer plastics that have degraded over time.
+          <h2 style={{color: 'white', fontFamily: "Caribbean", textAlign: 'center', fontSize: '2.7vw', textShadow: '3px 3px black'}}>A NON-PROFIT NFT COLLECTION HELPING SEA TURTLES TO SURVIVE.</h2>
+          <p style={{color: 'white', fontFamily: "Caribbean", fontSize: '1.8vw', padding: '24px', textShadow: '3px 3px black'}}>Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic which come from longer plastics that have degraded over time.
           Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic.</p>
        </div>
 
+      {/*Frame 1*/}
+      <div style={{position: 'absolute', top: '125vw', right: '60vw', transform: 'rotate(-15deg)'}}>
+        <img src="/config/images/frame-gold.png" style={{width: '55%'}}></img>
+      </div>
+
       {/*Text 2*/}
        <div id="mint-text" className="mint-text">
-        <h2 style={{color: 'white', fontFamily: "Caribbean", textAlign: 'center', fontSize: '48px', textShadow: '3px 3px black'}}>THE BIGGEST KILLER IN OCEAN.</h2>
-        <p style={{color: 'white', fontFamily: "Caribbean", fontSize: '30px', padding: '24px', textShadow: '3px 3px black'}}>Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic which come from longer plastics that have degraded over time.
+        <h2 style={{color: 'white', fontFamily: "Caribbean", textAlign: 'center', fontSize: '2.7vw', textShadow: '3px 3px black'}}>THE BIGGEST KILLER IN OCEAN.</h2>
+        <p style={{color: 'white', fontFamily: "Caribbean", fontSize: '1.8vw', padding: '24px', textShadow: '3px 3px black'}}>Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic which come from longer plastics that have degraded over time.
         Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic.</p>
         <div style={{display: 'flex', justifyContent: 'center', marginTop: '10px'}}>
-        <img id="connectbtn2" style={{width: '300px'}} src="/config/images/connect-btn.png" className="connect-button"
+        <img id="connectbtn2" style={{width: '260px'}} src="/config/images/connect-btn.png" className="connect-button"
            onClick={(e) => {
             e.preventDefault();
             dispatch(connect());
@@ -276,7 +279,6 @@ function App() {
               )}
           </div>
       </FirstPage>
-    </div>
   ); 
 }
 

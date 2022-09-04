@@ -93,8 +93,7 @@ text-shadow: 3px 3px black;
   flex-direction: column; 
   justify-content: center;
   align-items: center;
-  width: 100%;
-  top: 10%;
+  top: 5vh;
 }
 
 .lagune {
@@ -110,8 +109,8 @@ text-shadow: 3px 3px black;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 55%;
-  top: 190%;
+  width: 103vh;
+  top: 107vw;
 }
 
 .mint-text {
@@ -120,8 +119,8 @@ text-shadow: 3px 3px black;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 55%;
-  top: 305%;
+  width: 103vh;
+  top: 172vw;
 }
 
 .mint2 {
