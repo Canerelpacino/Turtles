@@ -124,47 +124,39 @@ function App() {
   return (
     <div  style={{scrollBehavior: 'smooth'}}>
 
-      <div className="shake" style={{position: 'fixed', top: '25px', left: '40px'}}>
-        <img src="/config/images/twitter_wabbits.png" style={{width: '55px'}}></img>
-      </div>
-      <div className="shake" style={{position: 'fixed', top: '17px', left: '100px'}}>
-        <img src="/config/images/os_wabbits.png" style={{width: '60px'}}></img>
-      </div>
-
       <FirstPage>
+      <img src="/config/images/tw.png" style={{width: '80px', position: 'fixed', top: '20px', right: '255px'}} className="tw"></img>
+      <img src="/config/images/os.png" style={{width: '80px', position: 'fixed', top: '20px', right: '338px'}} className="os"></img>
+      <img src="/config/images/etherscan.png" style={{width: '80px', position: 'fixed', top: '20px', right: '423px'}} className="etherscan"></img>
+
        <div className="header">
-         <p className="lagune">Welcome to the lagune.</p>
-         <a style={{scrollBehavior: 'smooth'}}>
-          <button className="mint-ref"  style={{scrollBehavior: 'smooth'}}>DIVE</button>
-         </a>
+         <img src="/config/images/logger.png" style={{width: '55%'}}></img>
        </div>
 
        <div className="ocean-box">
-          <h2 style={{color: 'black', fontFamily: "Caribbean", textAlign: 'center', fontSize: '48px'}}>THE BIGGEST KILLER IN OCEAN.</h2>
-          <p style={{color: 'black', fontFamily: "Caribbean", fontSize: '30px', padding: '24px'}}>Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic which come from longer plastics that have degraded over time.
+          <h2 style={{color: 'white', fontFamily: "Caribbean", textAlign: 'center', fontSize: '48px'}}>THE BIGGEST KILLER IN OCEAN.</h2>
+          <p style={{color: 'white', fontFamily: "Caribbean", fontSize: '30px', padding: '24px'}}>Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic which come from longer plastics that have degraded over time.
           Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic.</p>
        </div>
 
        <div id="mint-text" className="mint-text">
-        <h2 style={{color: 'black', fontFamily: "Caribbean", textAlign: 'center', fontSize: '48px'}}>THE BIGGEST KILLER IN OCEAN.</h2>
-        <p style={{color: 'black', fontFamily: "Caribbean", fontSize: '30px', padding: '24px'}}>Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic which come from longer plastics that have degraded over time.
+        <h2 style={{color: 'white', fontFamily: "Caribbean", textAlign: 'center', fontSize: '48px'}}>THE BIGGEST KILLER IN OCEAN.</h2>
+        <p style={{color: 'white', fontFamily: "Caribbean", fontSize: '30px', padding: '24px'}}>Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic which come from longer plastics that have degraded over time.
         Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic.</p>
         <div style={{display: 'flex', justifyContent: 'center', marginTop: '10px'}}>
-        <div id="connectbtn2" style={{display: 'flex', justifyContent: 'center'}} className="connect-button"
+        <img id="connectbtn2" style={{width: '300px'}} src="/config/images/connect-btn.png" className="connect-button"
            onClick={(e) => {
             e.preventDefault();
             dispatch(connect());
             getData();
-            }}
-                        
+            }}        
             >
-            CONNECT
-        </div>
+        </img>
         </div>
        </div>
 
 
-      <div id="connectbtn" style={{display: 'flex', position: 'fixed', top: '22px', right: '30px', justifyContent: 'center'}} className="connect-button"
+      <img style={{width: '250px', position: 'fixed', top: '15px', right: '15px'}} id="connectbtn" className="connect-button" src="/config/images/connect-btn.png"
            onClick={(e) => {
             e.preventDefault();
             dispatch(connect());
@@ -172,10 +164,10 @@ function App() {
             }}
                         
             >
-            CONNECT
-        </div>
+            
+        </img>
 
-        <div id="connected-btn" style={{display: 'none', position: 'fixed', top: '35px', right: '50px'}} className="connected-button"    
+        <div id="connected-btn" style={{display: 'none', position: 'fixed', top: '45px', right: '50px', color: '#C88D27'}} className="connected-button"    
             >
             CONNECTED
         </div>
@@ -217,7 +209,7 @@ function App() {
                     <>
                     <div onLoad={connected()}></div>
                       <div style={{overflow: 'hidden', boxSizing: 'border-box', display: 'block'}}>
-                        <p id="text-box" style={{color: '#000', visibility: 'inherit', maxWidth: '29ch', display: 'inline-block', marginBottom: '1em', margin: 0, 
+                        <p id="text-box" style={{color: 'white', visibility: 'inherit', maxWidth: '29ch', display: 'inline-block', marginBottom: '1em', margin: 0, 
                         fontFamily: "Caribbean", fontSize: '30px', lineHeight: '2rem', 
                         marginBlockStart: '0em', marginInlineStart: '50px', marginInlineEnd: '50px'}}>
                                     {feedback}
@@ -226,7 +218,7 @@ function App() {
                       <s.SpacerMedium />
                       <s.Container ai={"center"} jc={"center"} fd={"row"}>
                         <btn id="roundbtn" className="round-button"
-                          style={{fontFamily: 'Caribbean'}}
+                          style={{fontFamily: 'Caribbean', color: 'white'}}
                           disabled={claimingNft ? 1 : 0}
                           onClick={(e) => {
                             e.preventDefault();
@@ -240,14 +232,14 @@ function App() {
                           style={{
                             fontSize: '60px',
                             textAlign: "center",
-                            color: "var(--primary-text)", fontFamily: 'Caribbean',
+                            color: 'white', fontFamily: 'Caribbean',
                           }}
                         >
                           {mintAmount}
                         </s.TextDescription>
                         <s.SpacerMedium />
                         <btn className="round-button"
-                          style={{fontFamily: 'Caribbean'}}
+                          style={{fontFamily: 'Caribbean', color: 'white'}}
                           disabled={claimingNft ? 1 : 0}
                           onClick={(e) => {
                             e.preventDefault();
@@ -259,7 +251,7 @@ function App() {
                       </s.Container>
                       <s.SpacerSmall />
                       <s.Container ai={"center"} jc={"center"} fd={"row"}>
-                        <div className="mint-button"
+                        <img src="/config/images/mint.png" className="mint-button"
                           disabled={claimingNft ? 1 : 0}
                           onClick={(e) => {
                             e.preventDefault();
@@ -267,8 +259,7 @@ function App() {
                             getData();
                           }}
                         >
-                          {claimingNft ? "MINTING..." : "MINT"}
-                        </div>
+                        </img>
                       </s.Container>
                     </>
                   )}
