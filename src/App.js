@@ -120,13 +120,14 @@ function App() {
      document.getElementById("connectbtn").style.display = "none";
      document.getElementById("connected-btn").style.display = "flex";
      document.getElementById("mintbox").style.display = "none";
+     document.getElementById("mintbox-phone").style.display = "none";
   };
 
-  // Scroll Check
+  // Animations
   const changeScroll = () => {
     
     const scrollValue = document.documentElement.scrollTop;
-    if(scrollValue>1100){
+    if(scrollValue>1000){
       document.getElementById("oceanbox").style.opacity = "1";
       document.getElementById("oceanbox").style.visibility = "inherit";
       document.getElementById("oceanbox").style.transform = "translate(0px, 0px)";
@@ -137,14 +138,14 @@ function App() {
       document.getElementById("mintbox").style.visibility = "inherit";
       document.getElementById("mintbox").style.transform = "translate(0px, 0px)";
       document.getElementById("mintbox").style.transition = "all 1.2s ease-in-out";
-    }
-
+    };
   }
 
   window.addEventListener('scroll', changeScroll);
 
   return (
-      <div className="home" id="home">
+      <div>
+        <div className="home" id="home">
       {/*Background*/}
       <LazyLoadImage src="/config/images/canerelpacino.jpg" style={{maxWidth: '100%', maxHeight: '100%', position: 'relative'}}></LazyLoadImage>
 
@@ -177,19 +178,21 @@ function App() {
        </div>
 
       {/*Text 1*/}
-       <div className="ocean-box" id="oceanbox" style={{opacity: '0', visibility: 'hidden', transform: 'translate(0px, 50px)', transition: 'all 1.2s ease-in-out'}}>
-          <h2 style={{color: 'white', fontFamily: "Caribbean", textAlign: 'center', fontSize: '2.7vw', textShadow: '3px 3px black'}}>AN NFT COLLECTION HELPING SEA TURTLES TO SURVIVE.</h2>
+       <div className="ocean-box" id="oceanbox" style={{opacity: '0', visibility: 'hidden', transform: 'translate(0px, 100px)', transition: 'all 1.2s ease-in-out'}}>
+          <h2 style={{color: '#C88D27', fontFamily: "Caribbean", textAlign: 'center', fontSize: '2.7vw', textShadow: '3px 3px black'}}>AN NFT COLLECTION HELPING SEA TURTLES TO SURVIVE.</h2>
           <p style={{color: 'white', fontFamily: "Caribbean", fontSize: '1.8vw', padding: '24px', textShadow: '3px 3px black'}}>Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic which come from longer plastics that have degraded over time.
           Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic.</p>
        </div>
 
       {/*Text 2*/}
-       <div id="mintbox" className="mint-text" style={{opacity: '0', visibility: 'hidden', transform: 'translate(0px, 50px)', transition: 'all 1.2s ease-in-out'}}>
-        <h2 style={{color: 'white', fontFamily: "Caribbean", textAlign: 'center', fontSize: '2.7vw', textShadow: '3px 3px black'}}>THE BIGGEST KILLER IN OCEAN.</h2>
-        <p style={{color: 'white', fontFamily: "Caribbean", fontSize: '1.8vw', padding: '24px', textShadow: '3px 3px black'}}>Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic which come from longer plastics that have degraded over time.
-        Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic.</p>
-        <div style={{display: 'flex', justifyContent: 'center', marginTop: 0}}>
-        <LazyLoadImage id="connectbtn2" style={{width: '260px'}} src="/config/images/connect-btn.png" className="connect-button"
+       <div id="mintbox" className="mint-text" style={{opacity: '0', visibility: 'hidden', transform: 'translate(0px, 100px)', transition: 'all 1.2s ease-in-out'}}>
+        <h2 style={{color: '#C88D27', fontFamily: "Caribbean", fontSize: '2.7vw', textShadow: '3px 3px black'}}>WE ARE DONATING 100% OF OUR SECONDARY FUNDS</h2>
+        <div style={{width: '100%', padding: '10px', marginTop: '10px'}}>
+        <p style={{color: 'white', fontFamily: "Caribbean", fontSize: '1.8vw',textShadow: '3px 3px black'}}>Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic which come from longer plastics that have degraded over time.
+        Microplastics are a major part of the issue.</p>
+        </div>
+        <div style={{display: 'flex', justifyContent: 'center', marginTop: '9px', justifyContent: 'center'}}>
+        <LazyLoadImage id="connectbtn2" style={{width: '15vw'}} src="/config/images/connect-btn.png" className="connect-button"
            onClick={(e) => {
             e.preventDefault();
             dispatch(connect());
@@ -199,7 +202,7 @@ function App() {
         </LazyLoadImage>
         </div>
        </div>
-      
+
       {/*Mint Section*/}
       <div className="mint-section">
           {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
@@ -298,6 +301,168 @@ function App() {
               )}
           </div>
       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div className="phone-home">
+        <img src="/config/images/canerelpacino.jpg" style={{width: '250%'}}></img>
+
+         {/*Socials*/}
+        <a href="https://www.google.com/" target="_blank">
+        <LazyLoadImage src="/config/images/tw.png" style={{width: '15%', position: 'absolute', top: '15px', right: '10px', zIndex: '10'}} className="tw"></LazyLoadImage>
+        </a>
+        <a href="https://www.google.com/" target="_blank">
+        <LazyLoadImage src="/config/images/os.png" style={{width: '15%', position: 'absolute', top: '15px', right: '70px', zIndex: '10'}} className="os"></LazyLoadImage>
+        </a>
+          
+        {/*Logo*/}
+        <div className="header">
+          <LazyLoadImage src="/config/images/logger.png" style={{width: '100%', marginTop: '10vh'}}></LazyLoadImage>
+        </div>
+
+        {/*Text 1*/}
+        <div className="ocean-box-phone">
+          <h2 style={{color: '#C88D27', fontFamily: "Caribbean", textAlign: 'center', fontSize: '7vw', textShadow: '3px 3px black'}}>AN NFT COLLECTION HELPING SEA TURTLES TO SURVIVE.</h2>
+          <p style={{color: 'white', fontFamily: "Caribbean", fontSize: '5vw', padding: '15px', textShadow: '3px 3px black'}}>Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic which come from longer plastics that have degraded over time.</p>
+        </div>
+
+        {/*Text 2*/}
+       <div className="mint-text-phone" id="mintbox-phone">
+        <h2 style={{color: '#C88D27', fontFamily: "Caribbean", fontSize: '7vw', textShadow: '3px 3px black'}}>WE ARE DONATING 100% OF OUR SECONDARY FUNDS</h2>
+        <div style={{width: '100%', padding: '10px', marginTop: '10px'}}>
+        <p style={{color: 'white', fontFamily: "Caribbean", fontSize: '5vw',textShadow: '3px 3px black'}}>Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic which come from longer plastics that have degraded over time.</p>
+        </div>
+        <div id="connectbtn" style={{display: 'flex', justifyContent: 'center', marginTop: '9px', justifyContent: 'center'}}>
+        <LazyLoadImage id="connectbtn2" style={{width: '60vw'}} src="/config/images/connect-btn.png" className="connect-button"
+           onClick={(e) => {
+            e.preventDefault();
+            dispatch(connect());
+            getData();
+            }}        
+            >
+        </LazyLoadImage>
+        </div>
+       </div>
+
+        {/*Mint Section*/}
+      <div className="mint-section-phone">
+          {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
+                <>
+                  <s.TextTitle
+                    style={{ textAlign: "center", color: "var(--primary-text)", fontFamily: 'Caribbean' }}
+                  >
+                    SOLD OUT
+                  </s.TextTitle>
+                  <s.SpacerSmall />
+                </>
+              ) : (
+                <>
+                  <s.SpacerXSmall />
+                  <s.SpacerSmall />
+                  {blockchain.account === "" ||
+                  blockchain.smartContract === null ? (
+                    <s.Container ai={"center"} jc={"center"}>
+                      <s.SpacerSmall />
+                      
+                      {blockchain.errorMsg !== "" ? (
+                        <>
+                          <s.SpacerSmall />
+                          <s.TextDescription
+                            style={{
+                              fontFamily: 'Caribbean',
+                              textAlign: "center",
+                              color: "white",
+                              marginTop: '14.5vw'
+                            }}
+                          >
+                            {blockchain.errorMsg}
+                          </s.TextDescription>
+                        </>
+                      ) : null}
+                    </s.Container>
+                  ) : (
+                    <>
+                    <div onLoad={connected()}></div>
+                      <div style={{overflow: 'hidden', boxSizing: 'border-box', display: 'block'}}>
+                        <p id="text-box" style={{color: 'white', visibility: 'inherit', maxWidth: '29ch', display: 'inline-block', marginBottom: '1em', margin: 0, 
+                        fontFamily: "Caribbean", fontSize: '7vw', lineHeight: '2rem', 
+                        marginBlockStart: '0em', marginInlineStart: '50px', marginInlineEnd: '50px'}}>
+                                    {feedback}
+                        </p>
+                      </div>
+                      <s.SpacerMedium />
+                      <s.Container ai={"center"} jc={"center"} fd={"row"}>
+                        <btn id="roundbtn" className="round-button"
+                          style={{fontFamily: 'Caribbean', color: 'white'}}
+                          disabled={claimingNft ? 1 : 0}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            decrementMintAmount();
+                          }}
+                        >
+                          -
+                        </btn>
+                        <s.SpacerMedium />
+                        <s.TextDescription id="mint-amount"
+                          style={{
+                            fontSize: '60px',
+                            textAlign: "center",
+                            color: 'white', fontFamily: 'Caribbean',
+                          }}
+                        >
+                          {mintAmount}
+                        </s.TextDescription>
+                        <s.SpacerMedium />
+                        <btn className="round-button"
+                          style={{fontFamily: 'Caribbean', color: 'white'}}
+                          disabled={claimingNft ? 1 : 0}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            incrementMintAmount();
+                          }}
+                        >
+                          +
+                        </btn>
+                      </s.Container>
+                      <s.SpacerSmall />
+                      <s.Container ai={"center"} jc={"center"} fd={"row"}>
+                        <LazyLoadImage src="/config/images/mint.png" className="mint-button-phone"
+                          disabled={claimingNft ? 1 : 0}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            claimNFTs();
+                            getData();
+                          }}
+                        >
+                        </LazyLoadImage>
+                      </s.Container>
+                    </>
+                  )}
+                </>
+              )}
+          </div>
+      </div>
+
+    </div>
   ); 
 }
 

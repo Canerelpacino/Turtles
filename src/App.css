@@ -8,6 +8,28 @@ text-align: center;
 box-sizing: border-box;
 }
 
+.phone-home {
+  display: flex;
+  display: flex; 
+  flex-direction: column; 
+  justify-self: center; 
+  align-items: center; 
+  text-align: center; 
+  box-sizing: border-box;
+}
+
+@media (orientation: portrait) {
+  .home {
+    display: none;
+  }
+}
+
+@media (orientation: landscape) {
+  .phone-home {
+    display: none;
+  }
+}
+
 /*Mint-Button*/
 .connect-button:hover {
   transform: scale(0.95);
@@ -126,14 +148,36 @@ text-shadow: 3px 3px black;
   transform: translate(0px, 50px);
 }
 
+.ocean-box-phone {
+  position: absolute;
+  display: 'flex';
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  top: 262vw;
+}
+
 .mint-text {
   position: absolute;
   display: 'flex';
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 103vh;
-  top: 172vw;
+  text-align: center;
+  width: 50vw;
+  top: 174vw;
+}
+
+.mint-text-phone {
+  position: absolute;
+  display: 'flex';
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 85%;
+  top: 435vw;
 }
 
 .mint-section {
@@ -145,6 +189,20 @@ text-shadow: 3px 3px black;
   width: 55%;
   top: 172vw;
 }
+
+.mint-section-phone {
+  position: absolute;
+  display: 'flex';
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  top: 425vw;
+}
+
+.mint-button-phone{ 
+  width: 60vw;
+ }
 
 
 
