@@ -6,6 +6,7 @@ import * as s from "./styles/globalStyles";
 import styled from "styled-components";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 
 const truncate = (input, len) =>
@@ -48,7 +49,7 @@ function App() {
     let totalGasLimit = String(gasLimit * mintAmount);
     console.log("Cost: ", totalCostWei);
     console.log("Gas limit: ", totalGasLimit);
-    setFeedback(`Minting your ${CONFIG.NFT_NAME}...`);
+    setFeedback(`Have some patience dude...`);
     setClaimingNft(true);
     blockchain.smartContract.methods
       .mint(mintAmount)
@@ -60,13 +61,13 @@ function App() {
       })
       .once("error", (err) => {
         console.log(err);
-        setFeedback("Sorry, something went wrong.");
+        setFeedback("Sorry dude, something went wrong.");
         setClaimingNft(false);
       })
       .then((receipt) => {
         console.log(receipt);
         setFeedback(
-          `Mint successfull!`
+          `Dudeee you got it!!!`
         );
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));
@@ -118,32 +119,53 @@ function App() {
   const connected = () => {
      document.getElementById("connectbtn").style.display = "none";
      document.getElementById("connected-btn").style.display = "flex";
-     document.getElementById("mint-text").style.display = "none";
+     document.getElementById("mintbox").style.display = "none";
   };
 
+  // Scroll Check
+  const changeScroll = () => {
+    
+    const scrollValue = document.documentElement.scrollTop;
+    if(scrollValue>1100){
+      document.getElementById("oceanbox").style.opacity = "1";
+      document.getElementById("oceanbox").style.visibility = "inherit";
+      document.getElementById("oceanbox").style.transform = "translate(0px, 0px)";
+      document.getElementById("oceanbox").style.transition = "all 1.2s ease-in-out";
+    };
+    if(scrollValue>2000){
+      document.getElementById("mintbox").style.opacity = "1";
+      document.getElementById("mintbox").style.visibility = "inherit";
+      document.getElementById("mintbox").style.transform = "translate(0px, 0px)";
+      document.getElementById("mintbox").style.transition = "all 1.2s ease-in-out";
+    }
+
+  }
+
+  window.addEventListener('scroll', changeScroll);
+
   return (
-      <FirstPage>
+      <div className="home" id="home">
       {/*Background*/}
-      <img src="/config/images/canerelpacino.jpg" style={{maxWidth: '100%', maxHeight: '100%', position: 'relative'}}></img>
+      <LazyLoadImage src="/config/images/canerelpacino.jpg" style={{maxWidth: '100%', maxHeight: '100%', position: 'relative'}}></LazyLoadImage>
 
       {/*Socials*/}
       <a href="https://www.google.com/" target="_blank">
-      <img src="/config/images/tw.png" style={{width: '80px', position: 'fixed', top: '20px', right: '255px', zIndex: '10'}} className="tw"></img>
+      <LazyLoadImage src="/config/images/tw.png" style={{width: '80px', position: 'fixed', top: '20px', right: '255px', zIndex: '10'}} className="tw"></LazyLoadImage>
       </a>
       <a href="https://www.google.com/" target="_blank">
-      <img src="/config/images/os.png" style={{width: '80px', position: 'fixed', top: '20px', right: '338px', zIndex: '10'}} className="os"></img>
+      <LazyLoadImage src="/config/images/os.png" style={{width: '80px', position: 'fixed', top: '20px', right: '338px', zIndex: '10'}} className="os"></LazyLoadImage>
       </a>
       <a href="https://www.google.com/" target="_blank">
-      <img src="/config/images/etherscan.png" style={{width: '80px', position: 'fixed', top: '20px', right: '423px', zIndex: '10'}} className="etherscan"></img>
+      <LazyLoadImage src="/config/images/etherscan.png" style={{width: '80px', position: 'fixed', top: '20px', right: '423px', zIndex: '10'}} className="etherscan"></LazyLoadImage>
       </a>
-      <img style={{width: '250px', position: 'fixed', top: '15px', right: '15px', zIndex: '10'}} id="connectbtn" className="connect-button" src="/config/images/connect-btn.png"
+      <LazyLoadImage style={{width: '250px', position: 'fixed', top: '15px', right: '15px', zIndex: '10'}} id="connectbtn" className="connect-button" src="/config/images/connect-btn.png"
            onClick={(e) => {
             e.preventDefault();
             dispatch(connect());
             getData();
             }}           
             >
-        </img>
+        </LazyLoadImage>
         <div id="connected-btn" style={{display: 'none', position: 'fixed', top: '45px', right: '50px', color: '#C88D27'}} className="connected-button"    
             >
             CONNECTED
@@ -151,40 +173,35 @@ function App() {
 
       {/*Logo*/}
        <div className="header">
-          <img src="/config/images/logger.png" style={{width: '55%'}}></img>
+          <LazyLoadImage src="/config/images/logger.png" style={{width: '55%'}}></LazyLoadImage>
        </div>
 
       {/*Text 1*/}
-       <div className="ocean-box">
-          <h2 style={{color: 'white', fontFamily: "Caribbean", textAlign: 'center', fontSize: '2.7vw', textShadow: '3px 3px black'}}>A NON-PROFIT NFT COLLECTION HELPING SEA TURTLES TO SURVIVE.</h2>
+       <div className="ocean-box" id="oceanbox" style={{opacity: '0', visibility: 'hidden', transform: 'translate(0px, 50px)', transition: 'all 1.2s ease-in-out'}}>
+          <h2 style={{color: 'white', fontFamily: "Caribbean", textAlign: 'center', fontSize: '2.7vw', textShadow: '3px 3px black'}}>AN NFT COLLECTION HELPING SEA TURTLES TO SURVIVE.</h2>
           <p style={{color: 'white', fontFamily: "Caribbean", fontSize: '1.8vw', padding: '24px', textShadow: '3px 3px black'}}>Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic which come from longer plastics that have degraded over time.
           Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic.</p>
        </div>
 
-      {/*Frame 1*/}
-      <div style={{position: 'absolute', top: '125vw', right: '60vw', transform: 'rotate(-15deg)'}}>
-        <img src="/config/images/frame-gold.png" style={{width: '55%'}}></img>
-      </div>
-
       {/*Text 2*/}
-       <div id="mint-text" className="mint-text">
+       <div id="mintbox" className="mint-text" style={{opacity: '0', visibility: 'hidden', transform: 'translate(0px, 50px)', transition: 'all 1.2s ease-in-out'}}>
         <h2 style={{color: 'white', fontFamily: "Caribbean", textAlign: 'center', fontSize: '2.7vw', textShadow: '3px 3px black'}}>THE BIGGEST KILLER IN OCEAN.</h2>
         <p style={{color: 'white', fontFamily: "Caribbean", fontSize: '1.8vw', padding: '24px', textShadow: '3px 3px black'}}>Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic which come from longer plastics that have degraded over time.
         Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic.</p>
-        <div style={{display: 'flex', justifyContent: 'center', marginTop: '10px'}}>
-        <img id="connectbtn2" style={{width: '260px'}} src="/config/images/connect-btn.png" className="connect-button"
+        <div style={{display: 'flex', justifyContent: 'center', marginTop: 0}}>
+        <LazyLoadImage id="connectbtn2" style={{width: '260px'}} src="/config/images/connect-btn.png" className="connect-button"
            onClick={(e) => {
             e.preventDefault();
             dispatch(connect());
             getData();
             }}        
             >
-        </img>
+        </LazyLoadImage>
         </div>
        </div>
       
       {/*Mint Section*/}
-      <div className="mint2">
+      <div className="mint-section">
           {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
                 <>
                   <s.TextTitle
@@ -208,8 +225,10 @@ function App() {
                           <s.SpacerSmall />
                           <s.TextDescription
                             style={{
+                              fontFamily: 'Caribbean',
                               textAlign: "center",
-                              color: "var(--primary-text)",
+                              color: "white",
+                              marginTop: '14.5vw'
                             }}
                           >
                             {blockchain.errorMsg}
@@ -263,7 +282,7 @@ function App() {
                       </s.Container>
                       <s.SpacerSmall />
                       <s.Container ai={"center"} jc={"center"} fd={"row"}>
-                        <img src="/config/images/mint.png" className="mint-button"
+                        <LazyLoadImage src="/config/images/mint.png" className="mint-button"
                           disabled={claimingNft ? 1 : 0}
                           onClick={(e) => {
                             e.preventDefault();
@@ -271,30 +290,15 @@ function App() {
                             getData();
                           }}
                         >
-                        </img>
+                        </LazyLoadImage>
                       </s.Container>
                     </>
                   )}
                 </>
               )}
           </div>
-      </FirstPage>
+      </div>
   ); 
 }
-
-export const FirstPage = styled.div`
-display: flex; 
-flex-direction: column; 
-justify-self: center; 
-align-items: center; 
-text-align: center; 
-box-sizing: border-box;
-@media (max-width: 900px) {
-  display: flex;
-  flex-direction: column;
-  justify-self: center;
-  align-items: center;
-}
-`;
 
 export default App;

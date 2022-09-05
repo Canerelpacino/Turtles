@@ -1,3 +1,13 @@
+/*Home*/
+.home {
+display: flex; 
+flex-direction: column; 
+justify-self: center; 
+align-items: center; 
+text-align: center; 
+box-sizing: border-box;
+}
+
 /*Mint-Button*/
 .connect-button:hover {
   transform: scale(0.95);
@@ -9,7 +19,7 @@
 }
 
 .connected-button{ 
- font-family: "Caribbean";
+font-family: "Caribbean";
 font-size: 30px;
 text-shadow: 3px 3px black;
 }
@@ -111,6 +121,9 @@ text-shadow: 3px 3px black;
   align-items: center;
   width: 103vh;
   top: 107vw;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(0px, 50px);
 }
 
 .mint-text {
@@ -123,14 +136,14 @@ text-shadow: 3px 3px black;
   top: 172vw;
 }
 
-.mint2 {
+.mint-section {
   position: absolute;
   display: 'flex';
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 55%;
-  top: 310%;
+  top: 172vw;
 }
 
 

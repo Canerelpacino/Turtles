@@ -1,6 +1,0 @@
-<HideImage className={state? "right-image-move":"right-image"}>
-  <span className="left-image-span">
-    <span className="image-span"></span>
-    <img className="hero" src="/config/images/right_zombie.png"></img>
-  </span>
-</HideImage>
