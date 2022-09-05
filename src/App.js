@@ -6,7 +6,6 @@ import * as s from "./styles/globalStyles";
 import styled from "styled-components";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 
 const truncate = (input, len) =>
@@ -147,26 +146,28 @@ function App() {
       <div>
         <div className="home" id="home">
       {/*Background*/}
-      <LazyLoadImage src="/config/images/canerelpacino.jpg" style={{maxWidth: '100%', maxHeight: '100%', position: 'relative'}}></LazyLoadImage>
+      <video autoPlay loop muted id="myVideo" style={{width: '100%', filter: 'brightness(90%)'}}>
+        <source src="/config/images/Animation.mp4" type="video/mp4"></source>
+      </video>
 
       {/*Socials*/}
       <a href="https://www.google.com/" target="_blank">
-      <LazyLoadImage src="/config/images/tw.png" style={{width: '80px', position: 'fixed', top: '20px', right: '255px', zIndex: '10'}} className="tw"></LazyLoadImage>
+      <img src="/config/images/tw.png" style={{width: '80px', position: 'fixed', top: '20px', right: '255px', zIndex: '10'}} className="tw"></img>
       </a>
       <a href="https://www.google.com/" target="_blank">
-      <LazyLoadImage src="/config/images/os.png" style={{width: '80px', position: 'fixed', top: '20px', right: '338px', zIndex: '10'}} className="os"></LazyLoadImage>
+      <img src="/config/images/os.png" style={{width: '80px', position: 'fixed', top: '20px', right: '338px', zIndex: '10'}} className="os"></img>
       </a>
       <a href="https://www.google.com/" target="_blank">
-      <LazyLoadImage src="/config/images/etherscan.png" style={{width: '80px', position: 'fixed', top: '20px', right: '423px', zIndex: '10'}} className="etherscan"></LazyLoadImage>
+      <img src="/config/images/etherscan.png" style={{width: '80px', position: 'fixed', top: '20px', right: '423px', zIndex: '10'}} className="etherscan"></img>
       </a>
-      <LazyLoadImage style={{width: '250px', position: 'fixed', top: '15px', right: '15px', zIndex: '10'}} id="connectbtn" className="connect-button" src="/config/images/connect-btn.png"
+      <img style={{width: '250px', position: 'fixed', top: '15px', right: '15px', zIndex: '10'}} id="connectbtn" className="connect-button" src="/config/images/connect-btn.png"
            onClick={(e) => {
             e.preventDefault();
             dispatch(connect());
             getData();
             }}           
             >
-        </LazyLoadImage>
+        </img>
         <div id="connected-btn" style={{display: 'none', position: 'fixed', top: '45px', right: '50px', color: '#C88D27'}} className="connected-button"    
             >
             CONNECTED
@@ -174,7 +175,7 @@ function App() {
 
       {/*Logo*/}
        <div className="header">
-          <LazyLoadImage src="/config/images/logger.png" style={{width: '55%'}}></LazyLoadImage>
+          <img src="/config/images/logger.png" style={{width: '55%'}}></img>
        </div>
 
       {/*Text 1*/}
@@ -192,14 +193,14 @@ function App() {
         Microplastics are a major part of the issue.</p>
         </div>
         <div style={{display: 'flex', justifyContent: 'center', marginTop: '9px', justifyContent: 'center'}}>
-        <LazyLoadImage id="connectbtn2" style={{width: '15vw'}} src="/config/images/connect-btn.png" className="connect-button"
+        <img id="connectbtn2" style={{width: '15vw'}} src="/config/images/connect-btn.png" className="connect-button"
            onClick={(e) => {
             e.preventDefault();
             dispatch(connect());
             getData();
             }}        
             >
-        </LazyLoadImage>
+        </img>
         </div>
        </div>
 
@@ -285,7 +286,7 @@ function App() {
                       </s.Container>
                       <s.SpacerSmall />
                       <s.Container ai={"center"} jc={"center"} fd={"row"}>
-                        <LazyLoadImage src="/config/images/mint.png" className="mint-button"
+                        <img src="/config/images/mint.png" className="mint-button"
                           disabled={claimingNft ? 1 : 0}
                           onClick={(e) => {
                             e.preventDefault();
@@ -293,7 +294,7 @@ function App() {
                             getData();
                           }}
                         >
-                        </LazyLoadImage>
+                        </img>
                       </s.Container>
                     </>
                   )}
@@ -328,15 +329,15 @@ function App() {
 
          {/*Socials*/}
         <a href="https://www.google.com/" target="_blank">
-        <LazyLoadImage src="/config/images/tw.png" style={{width: '15%', position: 'absolute', top: '15px', right: '10px', zIndex: '10'}} className="tw"></LazyLoadImage>
+        <img src="/config/images/tw.png" style={{width: '15%', position: 'absolute', top: '15px', right: '10px', zIndex: '10'}} className="tw"></img>
         </a>
         <a href="https://www.google.com/" target="_blank">
-        <LazyLoadImage src="/config/images/os.png" style={{width: '15%', position: 'absolute', top: '15px', right: '70px', zIndex: '10'}} className="os"></LazyLoadImage>
+        <img src="/config/images/os.png" style={{width: '15%', position: 'absolute', top: '15px', right: '70px', zIndex: '10'}} className="os"></img>
         </a>
           
         {/*Logo*/}
         <div className="header">
-          <LazyLoadImage src="/config/images/logger.png" style={{width: '100%', marginTop: '10vh'}}></LazyLoadImage>
+          <img src="/config/images/logger.png" style={{width: '100%', marginTop: '10vh'}}></img>
         </div>
 
         {/*Text 1*/}
@@ -352,14 +353,14 @@ function App() {
         <p style={{color: 'white', fontFamily: "Caribbean", fontSize: '5vw',textShadow: '3px 3px black'}}>Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic which come from longer plastics that have degraded over time.</p>
         </div>
         <div id="connectbtn" style={{display: 'flex', justifyContent: 'center', marginTop: '9px', justifyContent: 'center'}}>
-        <LazyLoadImage id="connectbtn2" style={{width: '60vw'}} src="/config/images/connect-btn.png" className="connect-button"
+        <img id="connectbtn2" style={{width: '60vw'}} src="/config/images/connect-btn.png" className="connect-button"
            onClick={(e) => {
             e.preventDefault();
             dispatch(connect());
             getData();
             }}        
             >
-        </LazyLoadImage>
+        </img>
         </div>
        </div>
 
@@ -445,7 +446,7 @@ function App() {
                       </s.Container>
                       <s.SpacerSmall />
                       <s.Container ai={"center"} jc={"center"} fd={"row"}>
-                        <LazyLoadImage src="/config/images/mint.png" className="mint-button-phone"
+                        <img src="/config/images/mint.png" className="mint-button-phone"
                           disabled={claimingNft ? 1 : 0}
                           onClick={(e) => {
                             e.preventDefault();
@@ -453,7 +454,7 @@ function App() {
                             getData();
                           }}
                         >
-                        </LazyLoadImage>
+                        </img>
                       </s.Container>
                     </>
                   )}
