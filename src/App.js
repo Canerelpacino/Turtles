@@ -143,12 +143,10 @@ function App() {
   window.addEventListener('scroll', changeScroll);
 
   return (
-      <div>
+      <div style={{overflowY: 'auto'}}>
         <div className="home" id="home">
       {/*Background*/}
-      <video autoPlay loop muted id="myVideo" style={{width: '100%', filter: 'brightness(90%)'}}>
-        <source src="/config/images/Animation.mp4" type="video/mp4"></source>
-      </video>
+      <img src="/config/images/canerelpacino.jpg" style={{maxWidth: '100%', maxHeight: '100%'}}></img>
 
       {/*Socials*/}
       <a href="https://www.google.com/" target="_blank">
@@ -176,13 +174,15 @@ function App() {
       {/*Logo*/}
        <div className="header">
           <img src="/config/images/logger.png" style={{width: '55%'}}></img>
+          <p style={{position: 'absolute', top: '31.5vw',color: 'white', fontFamily: "Caribbean", textShadow: '3px 3px black', fontSize: '1.4vw'}}>Sea Turtle Conservancy Donater Wallet:</p>
+          <p style={{position: 'absolute', top: '33.3vw', color: '#C88D27', fontFamily: "Caribbean", textShadow: '3px 3px black', fontSize: '1.4vw'}}>0x1e41918437443fdFa7838CC45bCAf74A07dBbcf6</p>
        </div>
 
       {/*Text 1*/}
        <div className="ocean-box" id="oceanbox" style={{opacity: '0', visibility: 'hidden', transform: 'translate(0px, 100px)', transition: 'all 1.2s ease-in-out'}}>
           <h2 style={{color: '#C88D27', fontFamily: "Caribbean", textAlign: 'center', fontSize: '2.7vw', textShadow: '3px 3px black'}}>AN NFT COLLECTION HELPING SEA TURTLES TO SURVIVE.</h2>
-          <p style={{color: 'white', fontFamily: "Caribbean", fontSize: '1.8vw', padding: '24px', textShadow: '3px 3px black'}}>Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic which come from longer plastics that have degraded over time.
-          Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic.</p>
+          <p style={{color: 'white', fontFamily: "Caribbean", fontSize: '1.8vw', padding: '24px', textShadow: '3px 3px black'}}>Did you know that 52% of the world's sea turtles have eaten plastic waste? And that nearly all species of them are classified as endangered? They are struggling to survive - but they play a crucial role for the health of our oceans and land. Our misson
+          is to use the power of community and web3 to help sea turtles to survive.</p>
        </div>
 
       {/*Text 2*/}

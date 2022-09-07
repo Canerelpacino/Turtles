@@ -125,7 +125,7 @@ text-shadow: 3px 3px black;
   flex-direction: column; 
   justify-content: center;
   align-items: center;
-  top: 5vh;
+  top: 3vh;
 }
 
 .lagune {
@@ -142,10 +142,11 @@ text-shadow: 3px 3px black;
   justify-content: center;
   align-items: center;
   width: 103vh;
-  top: 107vw;
+  top: 105.5vw;
   opacity: 0;
   visibility: hidden;
   transform: translate(0px, 50px);
+  will-change: transform, box-shadow, z-index;
 }
 
 .ocean-box-phone {
