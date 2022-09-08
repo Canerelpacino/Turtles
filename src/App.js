@@ -189,8 +189,8 @@ function App() {
        <div id="mintbox" className="mint-text" style={{opacity: '0', visibility: 'hidden', transform: 'translate(0px, 100px)', transition: 'all 1.2s ease-in-out'}}>
         <h2 style={{color: '#C88D27', fontFamily: "Caribbean", fontSize: '2.7vw', textShadow: '3px 3px black'}}>WE ARE DONATING 100% OF OUR SECONDARY FUNDS</h2>
         <div style={{width: '100%', padding: '10px', marginTop: '10px'}}>
-        <p style={{color: 'white', fontFamily: "Caribbean", fontSize: '1.8vw',textShadow: '3px 3px black'}}>Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic which come from longer plastics that have degraded over time.
-        Microplastics are a major part of the issue.</p>
+        <p style={{color: 'white', fontFamily: "Caribbean", fontSize: '1.8vw',textShadow: '3px 3px black'}}>We wanna help. We will help. We decided to donate 100% of our secondary market 
+        funds to the sea turtle conservancy in Gainesville, FL. We are happy that the conservancy accepts cryptocurrency donations and so will we do. see above for the donater wallet.</p>
         </div>
         <div style={{display: 'flex', justifyContent: 'center', marginTop: '9px', justifyContent: 'center'}}>
         <img id="connectbtn2" style={{width: '15vw'}} src="/config/images/connect-btn.png" className="connect-button"
@@ -209,9 +209,9 @@ function App() {
           {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
                 <>
                   <s.TextTitle
-                    style={{ textAlign: "center", color: "var(--primary-text)", fontFamily: 'Caribbean' }}
+                    style={{ textAlign: "center", color: "#C88D27", fontFamily: 'Caribbean', fontSize: "5vw", marginTop: "4vw", textShadow: '3px 3px black'}}
                   >
-                    SOLD OUT
+                    SOLD OUT!
                   </s.TextTitle>
                   <s.SpacerSmall />
                 </>
@@ -227,12 +227,12 @@ function App() {
                       {blockchain.errorMsg !== "" ? (
                         <>
                           <s.SpacerSmall />
-                          <s.TextDescription
+                          <s.TextDescription className="error"
                             style={{
                               fontFamily: 'Caribbean',
                               textAlign: "center",
                               color: "white",
-                              marginTop: '14.5vw'
+                              marginTop: '19vw'
                             }}
                           >
                             {blockchain.errorMsg}
@@ -325,7 +325,7 @@ function App() {
 
 
       <div className="phone-home">
-        <img src="/config/images/canerelpacino.jpg" style={{width: '250%'}}></img>
+        <img src="/config/images/bg.jpg" style={{width: '250%'}}></img>
 
          {/*Socials*/}
         <a href="https://www.google.com/" target="_blank">
@@ -340,18 +340,8 @@ function App() {
           <img src="/config/images/logger.png" style={{width: '100%', marginTop: '10vh'}}></img>
         </div>
 
-        {/*Text 1*/}
-        <div className="ocean-box-phone">
-          <h2 style={{color: '#C88D27', fontFamily: "Caribbean", textAlign: 'center', fontSize: '7vw', textShadow: '3px 3px black'}}>AN NFT COLLECTION HELPING SEA TURTLES TO SURVIVE.</h2>
-          <p style={{color: 'white', fontFamily: "Caribbean", fontSize: '5vw', padding: '15px', textShadow: '3px 3px black'}}>Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic which come from longer plastics that have degraded over time.</p>
-        </div>
-
         {/*Text 2*/}
        <div className="mint-text-phone" id="mintbox-phone">
-        <h2 style={{color: '#C88D27', fontFamily: "Caribbean", fontSize: '7vw', textShadow: '3px 3px black'}}>WE ARE DONATING 100% OF OUR SECONDARY FUNDS</h2>
-        <div style={{width: '100%', padding: '10px', marginTop: '10px'}}>
-        <p style={{color: 'white', fontFamily: "Caribbean", fontSize: '5vw',textShadow: '3px 3px black'}}>Microplastics are a major part of the issue. Microplastics are tiny pieces of plastic which come from longer plastics that have degraded over time.</p>
-        </div>
         <div id="connectbtn" style={{display: 'flex', justifyContent: 'center', marginTop: '9px', justifyContent: 'center'}}>
         <img id="connectbtn2" style={{width: '60vw'}} src="/config/images/connect-btn.png" className="connect-button"
            onClick={(e) => {
@@ -387,29 +377,12 @@ function App() {
                       {blockchain.errorMsg !== "" ? (
                         <>
                           <s.SpacerSmall />
-                          <s.TextDescription
-                            style={{
-                              fontFamily: 'Caribbean',
-                              textAlign: "center",
-                              color: "white",
-                              marginTop: '14.5vw'
-                            }}
-                          >
-                            {blockchain.errorMsg}
-                          </s.TextDescription>
                         </>
                       ) : null}
                     </s.Container>
                   ) : (
                     <>
                     <div onLoad={connected()}></div>
-                      <div style={{overflow: 'hidden', boxSizing: 'border-box', display: 'block'}}>
-                        <p id="text-box" style={{color: 'white', visibility: 'inherit', maxWidth: '29ch', display: 'inline-block', marginBottom: '1em', margin: 0, 
-                        fontFamily: "Caribbean", fontSize: '7vw', lineHeight: '2rem', 
-                        marginBlockStart: '0em', marginInlineStart: '50px', marginInlineEnd: '50px'}}>
-                                    {feedback}
-                        </p>
-                      </div>
                       <s.SpacerMedium />
                       <s.Container ai={"center"} jc={"center"} fd={"row"}>
                         <btn id="roundbtn" className="round-button"
