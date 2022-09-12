@@ -8,19 +8,6 @@ text-align: center;
 box-sizing: border-box;
 }
 
-.phone-home {
-  display: flex;
-  display: flex; 
-  flex-direction: column; 
-  justify-self: center; 
-  align-items: center; 
-  text-align: center; 
-  box-sizing: border-box;
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
 @media (orientation: portrait) {
   .home {
     display: none;
@@ -152,16 +139,6 @@ text-shadow: 3px 3px black;
   will-change: transform, box-shadow, z-index;
 }
 
-.ocean-box-phone {
-  position: absolute;
-  display: 'flex';
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 90%;
-  top: 262vw;
-}
-
 .mint-text {
   position: absolute;
   display: 'flex';
@@ -173,16 +150,6 @@ text-shadow: 3px 3px black;
   top: 174vw;
 }
 
-.mint-text-phone {
-  position: absolute;
-  display: 'flex';
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 85%;
-  top: 270vw;
-}
 
 .mint-section {
   position: absolute;
@@ -194,15 +161,6 @@ text-shadow: 3px 3px black;
   top: 172vw;
 }
 
-.mint-section-phone {
-  position: absolute;
-  display: 'flex';
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  top: 247vw;
-}
 
 .mint-button-phone{ 
   width: 60vw;

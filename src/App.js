@@ -17,7 +17,7 @@ function App() {
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
   const [claimingNft, setClaimingNft] = useState(false);
-  const [feedback, setFeedback] = useState(`1 FREE PER WALLET. 0.0035 ETH FOR EXTRA MINTS.`);
+  const [feedback, setFeedback] = useState(`1 FREE NFT PER WALLET. ANY ADDITIONAL MINTS DO COST 0.0035 ETH PER NFT`);
   const [mintAmount, setMintAmount] = useState(1);
   const [CONFIG, SET_CONFIG] = useState({
     CONTRACT_ADDRESS: "",
@@ -119,7 +119,6 @@ function App() {
     document.getElementById("connectbtn").style.display = "none";
     document.getElementById("connected-btn").style.display = "flex";
     document.getElementById("mintbox").style.display = "none";
-    document.getElementById("mintbox-phone").style.display = "none";
   };
 
   // Animations
@@ -227,16 +226,6 @@ function App() {
                   {blockchain.errorMsg !== "" ? (
                     <>
                       <s.SpacerSmall />
-                      <s.TextDescription className="error"
-                        style={{
-                          fontFamily: 'Caribbean',
-                          textAlign: "center",
-                          color: "white",
-                          marginTop: '19vw'
-                        }}
-                      >
-                        {blockchain.errorMsg}
-                      </s.TextDescription>
                     </>
                   ) : null}
                 </s.Container>
@@ -304,27 +293,6 @@ function App() {
           )}
         </div>
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
       <FirstPage>
         <div className="logo-phone" style={{position: 'absolute', top: '5vh'}}>
