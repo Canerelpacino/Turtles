@@ -326,14 +326,31 @@ function App() {
 
 
 
-      <div>
-        <video autoPlay loop muted style={{width: '100%', height: '100%'}}>
-         <source src="/config/images/Animation.mp4" type="video/mp4"></source>
-        </video>
-      </div>
- 
+      <FirstPage>
+        <div style={{position: 'absolute', top: '5vh'}}>
+          <img src="/config/images/logger.png" style={{width: '100%'}}></img>
+        </div>
+      </FirstPage>
+
     </div>
   );
 }
+
+export const FirstPage = styled.div`
+display: flex; 
+flex-direction: column; 
+justify-self: center; 
+align-items: center; 
+height: 230vh;
+minWidth: 100%;
+background-image: url("/config/images/background.jpg");
+background-position: center center; 
+background-repeat: no-repeat;
+background-size: 220%; 
+text-align: center; 
+@media (orientation: landscape) {
+  display: none;
+}
+`;
 
 export default App;
