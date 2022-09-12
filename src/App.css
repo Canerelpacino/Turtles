@@ -16,6 +16,9 @@ box-sizing: border-box;
   align-items: center; 
   text-align: center; 
   box-sizing: border-box;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 @media (orientation: portrait) {
