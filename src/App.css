@@ -209,4 +209,10 @@ text-shadow: 3px 3px black;
  }
 
 
+ @media (max-height: 670px) {
+  .logo-phone {
+    display: none;
+  }
+}
+
 /**Killer in Ocean**/

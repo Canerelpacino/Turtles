@@ -327,7 +327,7 @@ function App() {
 
 
       <FirstPage>
-        <div style={{position: 'absolute', top: '5vh'}}>
+        <div className="logo-phone" style={{position: 'absolute', top: '5vh'}}>
           <img src="/config/images/logger.png" style={{width: '100%'}}></img>
         </div>
       </FirstPage>
