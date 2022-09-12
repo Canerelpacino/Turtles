@@ -326,20 +326,14 @@ function App() {
 
 
 
-      <FirstPage>
-        <video autoPlay loop muted style={{maxWidth: '100%', maxHeight: '100%'}}>
+      <div>
+        <video autoPlay loop muted style={{width: '100%', height: '100%'}}>
          <source src="/config/images/Animation.mp4" type="video/mp4"></source>
         </video>
-      </FirstPage>
-
+      </div>
+ 
     </div>
   );
 }
-
-export const FirstPage = styled.div`
-@media (orientation: landscape) {
-  display: none;
-}
-`;
 
 export default App;
