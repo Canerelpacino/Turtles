@@ -17,7 +17,7 @@ function App() {
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
   const [claimingNft, setClaimingNft] = useState(false);
-  const [feedback, setFeedback] = useState(`1 FREE PER WALLET. 0.0052 ETH FOR EXTRA MINTS.`);
+  const [feedback, setFeedback] = useState(`1 FREE PER WALLET. 0.0035 ETH FOR EXTRA MINTS.`);
   const [mintAmount, setMintAmount] = useState(1);
   const [CONFIG, SET_CONFIG] = useState({
     CONTRACT_ADDRESS: "",
@@ -149,7 +149,7 @@ function App() {
       <img src="/config/images/canerelpacino.jpg" style={{maxWidth: '100%', maxHeight: '100%'}}></img>
 
       {/*Socials*/}
-      <a href="https://www.google.com/" target="_blank">
+      <a href="https://twitter.com/LoggerHeadsNFT" target="_blank">
       <img src="/config/images/tw.png" style={{width: '80px', position: 'fixed', top: '20px', right: '255px', zIndex: '10'}} className="tw"></img>
       </a>
       <a href="https://www.google.com/" target="_blank">
@@ -174,7 +174,7 @@ function App() {
       {/*Logo*/}
        <div className="header">
           <img src="/config/images/logger.png" style={{width: '55%'}}></img>
-          <p style={{position: 'absolute', top: '31.5vw',color: 'white', fontFamily: "Caribbean", textShadow: '3px 3px black', fontSize: '1.4vw'}}>Sea Turtle Conservancy Donater Wallet:</p>
+          <p style={{position: 'absolute', top: '31.5vw',color: 'white', fontFamily: "Caribbean", textShadow: '3px 3px black', fontSize: '1.4vw'}}>Sea Turtle Conservancy Donor Wallet:</p>
           <p style={{position: 'absolute', top: '33.3vw', color: '#C88D27', fontFamily: "Caribbean", textShadow: '3px 3px black', fontSize: '1.4vw'}}>0x1e41918437443fdFa7838CC45bCAf74A07dBbcf6</p>
        </div>
 
