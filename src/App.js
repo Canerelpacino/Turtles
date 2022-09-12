@@ -327,21 +327,9 @@ function App() {
 
 
       <FirstPage>
-        <div style={{ position: 'absolute', top: '5vh' }}>
-          <img src="/config/images/logger.png" style={{ width: '100%' }}></img>
-        </div>
-        {/*Text 1*/}
-        <div style={{ width: '90%', position: 'absolute', top: '99vh' }}>
-          <h2 style={{ color: '#C88D27', fontFamily: "Caribbean", textAlign: 'center', fontSize: '2rem', textShadow: '3px 3px black' }}>HELPING SEA TURTLES TO SURVIVE</h2>
-          <p style={{ padding: '10px', color: 'white', fontFamily: "Caribbean", fontSize: '1.5rem', textShadow: '3px 3px black' }}>Did you know that nearly all species of them are classified as endangered? Our misson
-            is to use the power of web3 to help sea turtles to survive.</p>
-        </div>
-        {/*Text 2*/}
-        <div style={{ width: '90%', position: 'absolute', top: '172vh' }}>
-          <h2 style={{ color: '#C88D27', fontFamily: "Caribbean", textAlign: 'center', fontSize: '2rem', textShadow: '3px 3px black' }}>WE ARE DONATING.</h2>
-          <p style={{ padding: '10px', color: 'white', fontFamily: "Caribbean", fontSize: '1.5rem', textShadow: '3px 3px black' }}>We wanna help. We will help. We decided to donate 100% of our secondary market
-              funds. See above for the donor wallet.</p>
-        </div>
+        <video autoPlay loop muted style={{maxWidth: '100%', maxHeight: '100%'}}>
+         <source src="/config/images/Animation.mp4" type="video/mp4"></source>
+        </video>
       </FirstPage>
 
     </div>
@@ -349,17 +337,6 @@ function App() {
 }
 
 export const FirstPage = styled.div`
-display: flex; 
-flex-direction: column; 
-justify-self: center; 
-align-items: center; 
-height: 230vh;
-minWidth: 100%;
-background-image: url("/config/images/background.jpg");
-background-position: center center; 
-background-repeat: no-repeat;
-background-size: 220%; 
-text-align: center; 
 @media (orientation: landscape) {
   display: none;
 }
