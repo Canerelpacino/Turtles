@@ -146,7 +146,7 @@ function App() {
       <div style={{overflowY: 'auto'}}>
         <div className="home" id="home">
       {/*Background*/}
-      <img src="/config/images/canerelpacino.jpg" style={{maxWidth: '100%', maxHeight: '100%'}}></img>
+      <img src="/config/images/background.jpg" style={{maxWidth: '100%', maxHeight: '100%'}}></img>
 
       {/*Socials*/}
       <a href="https://twitter.com/LoggerHeadsNFT" target="_blank">
@@ -325,8 +325,8 @@ function App() {
 
 
       <FirstPage>
-        <div style={{position: 'absolute', top: '25vw', width: '60%'}}>
-          <p style={{color: '#C88D27', fontFamily: "Caribbean", fontSize: '8vw', textShadow: '3px 3px black'}}>Sorry, you have to be on your desktop.</p>
+        <div style={{position: 'absolute', top: '87vw', width: '70%'}}>
+          <p style={{color: '#C88D27', fontFamily: "Caribbean", fontSize: '10vw', textShadow: '3px 3px black'}}>Sorry, you have to be on your desktop.</p>
         </div>
       </FirstPage>
 
@@ -341,10 +341,10 @@ justify-self: center;
 align-items: center; 
 height: 100vh; 
 minWidth: 100%;
-background-image: url("/config/images/bg.jpg");
-background-position: 50%; 
+background-image: url("/config/images/background.jpg");
+background-position: 50% 50%; 
 background-repeat: no-repeat;
-background-size: 150%; 
+background-size: 200%; 
 text-align: center; 
 box-sizing: border-box;
 @media (orientation: landscape) {
