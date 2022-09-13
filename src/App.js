@@ -174,7 +174,7 @@ function App() {
         <div className="header">
           <img src="/config/images/logger.png" style={{ width: '55%' }}></img>
           <p style={{ position: 'absolute', top: '31.5vw', color: 'white', fontFamily: "Caribbean", textShadow: '3px 3px black', fontSize: '1.4vw' }}>Sea Turtle Conservancy Donor Wallet:</p>
-          <p style={{ position: 'absolute', top: '33.3vw', color: '#C88D27', fontFamily: "Caribbean", textShadow: '3px 3px black', fontSize: '1.4vw' }}>0x50531A47B0102138Fe1c1544bdf879657e7D8e0F</p>
+          <p style={{ position: 'absolute', top: '33.3vw', color: '#C88D27', fontFamily: "Caribbean", textShadow: '3px 3px black', fontSize: '1.4vw' }}>0xe5b3ef8FD615fBbf63ac111982833b73fA946926</p>
         </div>
 
         {/*Text 1*/}
