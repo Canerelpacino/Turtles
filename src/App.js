@@ -17,7 +17,7 @@ function App() {
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
   const [claimingNft, setClaimingNft] = useState(false);
-  const [feedback, setFeedback] = useState(`1 FREE NFT PER WALLET. ANY ADDITIONAL MINTS DO COST 0.0035 ETH PER NFT`);
+  const [feedback, setFeedback] = useState(`THE MINT IS FREE! ANY EXTRA MINTS DO COST 0.0025 ETH.`);
   const [mintAmount, setMintAmount] = useState(1);
   const [CONFIG, SET_CONFIG] = useState({
     CONTRACT_ADDRESS: "",
@@ -40,7 +40,7 @@ function App() {
     let cost = CONFIG.WEI_COST;
 
     if (mintAmount > 1) {
-      cost = 5000000000000000;
+      cost = 2500000000000000;
     }
 
     let gasLimit = CONFIG.GAS_LIMIT;
@@ -48,7 +48,7 @@ function App() {
     let totalGasLimit = String(gasLimit * mintAmount);
     console.log("Cost: ", totalCostWei);
     console.log("Gas limit: ", totalGasLimit);
-    setFeedback(`Have some patience dude...`);
+    setFeedback(`Have some patience...`);
     setClaimingNft(true);
     blockchain.smartContract.methods
       .mint(mintAmount)
@@ -60,13 +60,13 @@ function App() {
       })
       .once("error", (err) => {
         console.log(err);
-        setFeedback("Sorry dude, something went wrong.");
+        setFeedback("Sorry, something went wrong.");
         setClaimingNft(false);
       })
       .then((receipt) => {
         console.log(receipt);
         setFeedback(
-          `Dudeee you got it!!!`
+          `You got it!!!`
         );
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));
@@ -83,8 +83,8 @@ function App() {
 
   const incrementMintAmount = () => {
     let newMintAmount = mintAmount + 1;
-    if (newMintAmount > 10) {
-      newMintAmount = 10;
+    if (newMintAmount > 20) {
+      newMintAmount = 20;
     }
     setMintAmount(newMintAmount);
   };
@@ -149,15 +149,15 @@ function App() {
 
         {/*Socials*/}
         <a href="https://twitter.com/LoggerHeadsNFT" target="_blank">
-          <img src="/config/images/tw.png" style={{ width: '80px', position: 'fixed', top: '20px', right: '255px', zIndex: '10' }} className="tw"></img>
+          <img src="/config/images/tw.png" style={{ width: '75px', position: 'fixed', top: '20px', right: '245px', zIndex: '10' }} className="tw"></img>
         </a>
         <a href="https://www.google.com/" target="_blank">
-          <img src="/config/images/os.png" style={{ width: '80px', position: 'fixed', top: '20px', right: '338px', zIndex: '10' }} className="os"></img>
+          <img src="/config/images/os.png" style={{ width: '75px', position: 'fixed', top: '20px', right: '328px', zIndex: '10' }} className="os"></img>
         </a>
         <a href="https://www.google.com/" target="_blank">
-          <img src="/config/images/etherscan.png" style={{ width: '80px', position: 'fixed', top: '20px', right: '423px', zIndex: '10' }} className="etherscan"></img>
+          <img src="/config/images/etherscan.png" style={{ width: '75px', position: 'fixed', top: '20px', right: '412px', zIndex: '10' }} className="etherscan"></img>
         </a>
-        <img style={{ width: '250px', position: 'fixed', top: '15px', right: '15px', zIndex: '10' }} id="connectbtn" className="connect-button" src="/config/images/connect-btn.png"
+        <img style={{ width: '231px', position: 'fixed', top: '15px', right: '15px', zIndex: '10' }} id="connectbtn" className="connect-button" src="/config/images/connect-btn.png"
           onClick={(e) => {
             e.preventDefault();
             dispatch(connect());
@@ -189,7 +189,7 @@ function App() {
           <h2 style={{ color: '#C88D27', fontFamily: "Caribbean", fontSize: '2.7vw', textShadow: '3px 3px black' }}>WE ARE DONATING 100% OF OUR SECONDARY FUNDS</h2>
           <div style={{ width: '100%', padding: '10px', marginTop: '10px' }}>
             <p style={{ color: 'white', fontFamily: "Caribbean", fontSize: '1.8vw', textShadow: '3px 3px black' }}>We wanna help. We will help. We decided to donate 100% of our secondary market
-              funds to the sea turtle conservancy in Gainesville, FL. We are happy that the conservancy accepts cryptocurrency donations and so will we do. See above for the donor wallet.</p>
+              funds to the oldest sea turtle conservancy in the world in Gainesville, FL. The Donation will take place every sunday. Follow our twitter for more information.</p>
           </div>
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: '9px', justifyContent: 'center' }}>
             <img id="connectbtn2" style={{ width: '15vw' }} src="/config/images/connect-btn.png" className="connect-button"
@@ -295,9 +295,7 @@ function App() {
       </div>
 
       <FirstPage>
-        <div className="logo-phone" style={{position: 'absolute', top: '5vh'}}>
-          <img src="/config/images/logger.png" style={{width: '100%'}}></img>
-        </div>
+
       </FirstPage>
 
     </div>
